@@ -498,3 +498,13 @@
 .creator-logo-small{display:none!important}
 .creator-identity{justify-content:center}
 .creator-copy{text-align:center}
+
+
+/* Compact premium button-style developer badge */
+.creator-brand{width:fit-content;max-width:calc(100% - 28px);margin:26px auto 8px;padding:0;border:0;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,rgba(255,248,218,.08),rgba(231,198,107,.12));border:1px solid rgba(231,198,107,.68);box-shadow:0 5px 18px rgba(0,0,0,.18),inset 0 0 0 3px rgba(231,198,107,.06);color:#f8e6b0}
+.creator-identity{display:flex;justify-content:center;align-items:center;padding:12px 20px 13px}
+.creator-copy{text-align:center;min-width:0}
+.creator-credit{margin:0 0 5px;font-size:9px;font-weight:800;letter-spacing:3px;color:#e7c66b}
+.creator-name{display:block;margin:0;font-size:clamp(18px,4vw,24px);font-weight:900;letter-spacing:1.6px;line-height:1.15;color:#fff0bd;text-shadow:0 2px 10px rgba(231,198,107,.18)}
+.creator-service{margin-top:7px;font-size:clamp(9px,2.5vw,11px);font-weight:800;letter-spacing:.8px;line-height:1.35;color:#e7c66b}
+@media(max-width:380px){.creator-identity{padding:11px 12px}.creator-credit{letter-spacing:2.4px}.creator-name{font-size:18px;letter-spacing:1px}.creator-service{font-size:9px;letter-spacing:.35px}}
