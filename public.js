@@ -8,7 +8,8 @@ async function content(key) { if(!db) return null; const {data,error}=await db.f
 function showSocial(s) {
   if(!s) return;
   const items=[['instagram','◎','इंस्टाग्राम','रील्स और तस्वीरें','instagram'],['facebook','f','फेसबुक','फोटो और अपडेट','facebook'],['youtube','▶','यूट्यूब','पूजा कार्यक्रम के वीडियो','youtube'],['whatsapp','◉','व्हाट्सऐप','सूचनाएँ और संपर्क','whatsapp']];
-  if(!s.instagram)s.instagram='https://www.instagram.com/badidevijetulsimandi/';
+  s.instagram='https://www.instagram.com/badidevijetulsimandi?vrfl=OTl4M2tldmJoaGN5';
+  s.facebook='https://www.facebook.com/share/1EaFwpwDue/';
   const configuredItems=items.filter(x=>s[x[0]]);
   if(!configuredItems.length) return;
   $('socialGrid').innerHTML=configuredItems.map(x=>`<a class="social ${x[4]}" href="${esc(s[x[0]])}" target="_blank" rel="noopener"><span class="social-symbol">${x[1]}</span><span><strong>${x[2]}</strong><small>${x[3]}</small></span></a>`).join('');
