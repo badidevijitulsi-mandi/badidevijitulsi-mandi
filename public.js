@@ -10,7 +10,7 @@ function showSocial(s) {
   const items=[['instagram','◎','इंस्टाग्राम','रील्स और तस्वीरें','instagram'],['facebook','f','फेसबुक','फोटो और अपडेट','facebook'],['youtube','▶','यूट्यूब','पूजा कार्यक्रम के वीडियो','youtube'],['whatsapp','◉','व्हाट्सऐप','सूचनाएँ और संपर्क','whatsapp']];
   s.instagram='https://www.instagram.com/badidevijetulsimandi?vrfl=OTl4M2tldmJoaGN5';
   s.facebook='https://www.facebook.com/share/1EaFwpwDue/';
-  const configuredItems=items.filter(x=>s[x[0]]);
+  const configuredItems=items.filter(x=>['instagram','facebook'].includes(x[0]));
   if(!configuredItems.length) return;
   $('socialGrid').innerHTML=configuredItems.map(x=>`<a class="social ${x[4]}" href="${esc(s[x[0]])}" target="_blank" rel="noopener"><span class="social-symbol">${x[1]}</span><span><strong>${x[2]}</strong><small>${x[3]}</small></span></a>`).join('');
 }
