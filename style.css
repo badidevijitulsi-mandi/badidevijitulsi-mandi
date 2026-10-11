@@ -480,3 +480,16 @@
 .creator-service{font-size:clamp(12px,2vw,16px);letter-spacing:1.2px;color:#f4f0e7}
 .creator-service span{color:#e7c66b}
 .creator-monogram{font-size:30px;letter-spacing:-3px;background:linear-gradient(135deg,#ffe58a,#c58a18 45%,#f7f7f7 68%,#aeb2b8);background-clip:text;-webkit-background-clip:text;color:transparent;border-radius:12px;width:76px;height:60px;border:0;box-shadow:none;text-shadow:none}
+
+
+/* Compact creator credit: prominent name, small logo on the right */
+.creator-brand{margin:26px auto 4px;padding:20px 10px 8px;border-top:1px solid rgba(231,198,107,.28);max-width:520px;color:#e7c66b}
+.creator-identity{display:flex;align-items:center;justify-content:center;gap:18px}
+.creator-copy{text-align:left;min-width:0}
+.creator-credit{font-size:10px;letter-spacing:2px;font-weight:700;color:rgba(255,241,198,.75)}
+.creator-name{margin-top:3px;font-size:clamp(19px,4vw,27px);font-weight:900;letter-spacing:1.4px;line-height:1.2;color:#f8e6b0;text-shadow:0 2px 12px rgba(231,198,107,.16)}
+.creator-service{margin-top:7px;font-size:10px;font-weight:800;letter-spacing:.8px;color:#e7c66b}
+.creator-logo-small{flex:0 0 72px;width:72px;height:62px;border:1px solid #d8b75e;border-radius:7px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#f5d77d;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(216,183,94,.04));box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.creator-logo-small span{font-family:Georgia,serif;font-size:27px;line-height:1;font-weight:900;font-style:italic;letter-spacing:-3px;padding-right:3px;text-shadow:0 1px 5px rgba(231,198,107,.3)}
+.creator-logo-small small{margin-top:5px;text-align:center;font-size:4px;letter-spacing:.45px;font-weight:800;color:#f8e6b0}
+@media(max-width:380px){.creator-identity{gap:10px}.creator-name{font-size:18px;letter-spacing:.5px}.creator-service{font-size:8px;letter-spacing:.2px}.creator-logo-small{flex-basis:60px;width:60px;height:54px}}
