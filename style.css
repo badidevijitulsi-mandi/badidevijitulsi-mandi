@@ -459,3 +459,9 @@
  .media-body h3{font-size:12px}
  .social strong{font-size:12px}
 }
+
+/* Notice briefly flashes in red, blue and green, then remains as a calm note. */
+.announcement.notice-flash{animation:noticeFlash 1s steps(1,end) 3;border-left-color:#d71920}
+@keyframes noticeFlash{0%,100%{background:#d71920;color:#fff;border-color:#d71920}33%{background:#1457d9;color:#fff;border-color:#1457d9}66%{background:#16843b;color:#fff;border-color:#16843b}}
+.announcement.notice-flash strong,.announcement.notice-flash p,.announcement.notice-flash small{color:#fff}
+@media(prefers-reduced-motion:reduce){.announcement.notice-flash{animation:none}}
