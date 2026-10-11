@@ -55,7 +55,8 @@ function renderVideos(items) {
 function renderAnnouncements(items) {
   if(!items.length) return;
   $('announcementsSection').hidden=false;
-  $('announcementList').innerHTML=items.map(x=>`<article class="announcement"><strong>${esc(x.title)}</strong><p>${esc(x.body)}</p><small>${x.created_at?new Date(x.created_at).toLocaleDateString('hi-IN'):''}</small></article>`).join('');
+  $('announcementList').innerHTML=items.map(x=>`<article class="announcement notice-flash"><strong>📢 ${esc(x.title)}</strong><p>${esc(x.body)}</p><small>${x.created_at?new Date(x.created_at).toLocaleDateString('hi-IN'):''}</small></article>`).join('');
+  $('announcementList').querySelectorAll('.notice-flash').forEach(card=>{window.setTimeout(()=>card.classList.remove('notice-flash'),3000);});
 }
 function renderEvents(items) {
   const fallback=[
