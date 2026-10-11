@@ -474,3 +474,9 @@
 .creator-service{margin-top:6px;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#e7c66b}
 .creator-credit{margin-top:8px;font-size:10px;color:rgba(255,241,198,.72)}
 @media(max-width:520px){.creator-brand{margin-top:22px;padding-top:18px}.creator-service{font-size:10px;letter-spacing:1px}}
+
+/* Match the wording shown in the user's SS logo */
+.creator-name{display:none}
+.creator-service{font-size:clamp(12px,2vw,16px);letter-spacing:1.2px;color:#f4f0e7}
+.creator-service span{color:#e7c66b}
+.creator-monogram{font-size:30px;letter-spacing:-3px;background:linear-gradient(135deg,#ffe58a,#c58a18 45%,#f7f7f7 68%,#aeb2b8);background-clip:text;-webkit-background-clip:text;color:transparent;border-radius:12px;width:76px;height:60px;border:0;box-shadow:none;text-shadow:none}
