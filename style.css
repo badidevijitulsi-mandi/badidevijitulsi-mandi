@@ -493,3 +493,8 @@
 .creator-logo-small span{font-family:Georgia,serif;font-size:27px;line-height:1;font-weight:900;font-style:italic;letter-spacing:-3px;padding-right:3px;text-shadow:0 1px 5px rgba(231,198,107,.3)}
 .creator-logo-small small{margin-top:5px;text-align:center;font-size:4px;letter-spacing:.45px;font-weight:800;color:#f8e6b0}
 @media(max-width:380px){.creator-identity{gap:10px}.creator-name{font-size:18px;letter-spacing:.5px}.creator-service{font-size:8px;letter-spacing:.2px}.creator-logo-small{flex-basis:60px;width:60px;height:54px}}
+
+/* Hide the small placeholder mark on the right; keep the creator text clean. */
+.creator-logo-small{display:none!important}
+.creator-identity{justify-content:center}
+.creator-copy{text-align:center}
