@@ -38,10 +38,18 @@ function openImageViewer(src, title) {
 function renderGallery(items) {
   const cards=$('galleryCards');
   if(!cards) return;
-  const years=[...new Set(['2025',...items.map(x=>String(x.year_label||'2025'))])].sort((a,b)=>Number(b)-Number(a));
+  const photos=items.filter(x=>x.media_type!=='video');
+  const years=[...new Set(['2025',...photos.map(x=>String(x.year_label||'2025'))])].sort((a,b)=>Number(b)-Number(a));
   const selected=cards.dataset.year||'2025';
-  cards.innerHTML=`<div class="gallery-year-filter" style="grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">${years.map(y=>`<button type="button" class="button ${y===selected?'button-gold':'button-outline'}" data-gallery-year="${esc(y)}">${esc(y)}</button>`).join('')}</div>`+items.filter(x=>String(x.year_label||'2025')===selected && x.media_type!=='video').map(x=>`<article class="media-card"><img class="gallery-photo" loading="lazy" src="${esc(x.media_url)}" alt="${esc(x.title)}" data-view-image="${esc(x.media_url)}" data-view-title="${esc(x.title)}"><div class="media-body"><h3>${esc(x.title)}</h3><p>${esc(x.description||'')} · ${esc(x.year_label||'2025')}</p></div></article>`).join('');
-  cards.querySelectorAll('[data-gallery-year]').forEach(btn=>btn.addEventListener('click',()=>{cards.dataset.year=btn.dataset.galleryYear;renderGallery(items)}));
+  const yearItems=photos.filter(x=>String(x.year_label||'2025')===selected);
+  const categories=[['all','सभी तस्वीरें'],['माँ दुर्गा दर्शन','माँ के दर्शन'],['ग्रुप फोटो','ग्रुप फोटो'],['विसर्जन','विसर्जन']];
+  const available=new Set(yearItems.map(x=>String(x.category||'माँ दुर्गा दर्शन').trim()));
+  const shownCategories=categories.filter(([key])=>key==='all'||available.has(key));
+  const selectedCategory=cards.dataset.category||'all';
+  const visible=selectedCategory==='all'?yearItems:yearItems.filter(x=>String(x.category||'माँ दुर्गा दर्शन').trim()===selectedCategory);
+  cards.innerHTML=`<div class="gallery-year-filter" style="grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">${years.map(y=>`<button type="button" class="button ${y===selected?'button-gold':'button-outline'}" data-gallery-year="${esc(y)}">${esc(y)}</button>`).join('')}</div><div style="grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px">${shownCategories.map(([key,label])=>`<button type="button" class="button ${key===selectedCategory?'button-gold':'button-outline'}" data-gallery-category="${esc(key)}">${esc(label)}</button>`).join('')}</div>`+visible.map(x=>`<article class="media-card"><img class="gallery-photo" loading="lazy" src="${esc(x.media_url)}" alt="${esc(x.title)}" data-view-image="${esc(x.media_url)}" data-view-title="${esc(x.title)}"><div class="media-body"><h3>${esc(x.title)}</h3><p>${esc(x.description||'')} · ${esc(x.year_label||'2025')}</p></div></article>`).join('') || `<p style="grid-column:1/-1;color:#806b5b">इस श्रेणी में अभी तस्वीरें नहीं हैं। प्रशासन पैनल से तस्वीरें जोड़ें और श्रेणी चुनें।</p>`;
+  cards.querySelectorAll('[data-gallery-year]').forEach(btn=>btn.addEventListener('click',()=>{cards.dataset.year=btn.dataset.galleryYear;cards.dataset.category='all';renderGallery(items)}));
+  cards.querySelectorAll('[data-gallery-category]').forEach(btn=>btn.addEventListener('click',()=>{cards.dataset.category=btn.dataset.galleryCategory;renderGallery(items)}));
   cards.querySelectorAll('[data-view-image]').forEach(img=>img.addEventListener('click',()=>openImageViewer(img.dataset.viewImage,img.dataset.viewTitle)));
 }
 function renderVideos(items) {
