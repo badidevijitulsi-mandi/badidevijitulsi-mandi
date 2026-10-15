@@ -553,3 +553,11 @@
 .hero .hero-photo{display:block!important;position:relative!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;overflow:visible!important;line-height:0!important;background:transparent!important;grid-area:auto!important}
 .hero .hero-photo img{display:block!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;object-fit:contain!important;object-position:center center!important;filter:none!important;transform:none!important;border-radius:0!important;background:transparent!important}
 @media(max-width:700px){.hero .hero-photo{width:100%!important;height:auto!important;min-height:0!important;max-height:none!important}.hero .hero-photo img{width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;object-fit:contain!important;object-position:center top!important}}
+
+
+/* Emergency clarity fix: never blur or dim the main hero photo */
+.hero .hero-photo,
+.hero .hero-photo img{filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;opacity:1!important}
+.hero .hero-photo img{mix-blend-mode:normal!important;visibility:visible!important}
+.hero .hero-inner{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+@media(max-width:700px){.hero .hero-photo img{filter:none!important;opacity:1!important;mix-blend-mode:normal!important}}
