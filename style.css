@@ -527,3 +527,4 @@
   outline: 3px solid #7c1018 !important;
   outline-offset: 2px;
 }
+\n/* History photo slideshow */\n.history-slideshow{position:relative;width:100%;margin-top:12px;overflow:hidden;border-radius:12px;background:#fff3d4;box-shadow:0 5px 18px rgba(120,35,15,.10)}.history-slide{display:block;width:100%;height:clamp(220px,42vw,420px);object-fit:contain;transition:opacity .25s ease;background:#fff8e7}.history-slide-count{position:absolute;right:10px;bottom:10px;padding:4px 10px;border-radius:20px;background:rgba(101,13,22,.82);color:#fff3c0;font-size:12px;font-weight:700}\n
