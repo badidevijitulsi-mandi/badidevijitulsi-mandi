@@ -126,7 +126,7 @@ function initBhaktiPanel(){
      const el=document.createElement('span');el.className='falling-flower';el.textContent=flowers[count++%flowers.length];
      el.style.left=(3+Math.random()*94)+'%';el.style.setProperty('--drift',(Math.random()*70-35)+'px');
      stage.appendChild(el);window.setTimeout(()=>el.remove(),3900);
-   },220);
+   },100);
    flowerRainTimer=window.setTimeout(()=>{window.clearInterval(rain);flowerRainTimer=null;},10000);
  };
  panel.querySelectorAll('[data-bhakti]').forEach(btn=>btn.addEventListener('click',()=>{
