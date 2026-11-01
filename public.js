@@ -91,7 +91,39 @@ const r=document.documentElement;r.style.setProperty('--yellow',p.background);r.
 const old=document.getElementById('siteThemeOverrides');if(old)old.remove();const style=document.createElement('style');style.id='siteThemeOverrides';style.textContent='.site-header{background:var(--maroon)}.hero{background-color:var(--maroon-deep)}.shortcut-wrap{background:var(--yellow)}.shortcut{background:var(--card);border-color:var(--line)}.shortcut strong,.section-heading h2,.info-card h2,.contact-card h2,.media-body h3,.announcement strong{color:var(--maroon)}.announcement{background:var(--card);border-color:var(--line);border-left-color:var(--gold-deep)}.media-card,.contact-card,.info-card{background:var(--card);border-color:var(--line)}.button-gold{background:var(--gold);border-color:var(--gold)}.button-outline{border-color:var(--gold);color:var(--maroon)}.text-link{color:var(--maroon);border-color:var(--line)}.site-footer{background:var(--maroon-deep)}';document.head.appendChild(style);document.querySelector('meta[name="theme-color"]')?.setAttribute('content',p.deep);
 }
 
+
+// Devotional actions: flowers, a persistent diya toggle, and gesture-triggered conch/bell tones.
+function initBhaktiPanel(){
+ const panel=document.querySelector('.bhakti-panel');if(!panel)return;
+ const feedback=$('bhaktiFeedback'),stage=$('flowerStage');
+ let audioContext;
+ const getAudio=()=>{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audioContext)audioContext=new C();if(audioContext.state==='suspended')audioContext.resume();return audioContext;};
+ const tone=(ctx,freq,start,duration,gain,type='sine',detune=0)=>{
+   const osc=ctx.createOscillator(),amp=ctx.createGain();osc.type=type;osc.frequency.setValueAtTime(freq,start);osc.detune.setValueAtTime(detune,start);amp.gain.setValueAtTime(.0001,start);amp.gain.exponentialRampToValueAtTime(gain,start+.035);amp.gain.exponentialRampToValueAtTime(.0001,start+duration);osc.connect(amp);amp.connect(ctx.destination);osc.start(start);osc.stop(start+duration+.04);
+ };
+ const playBell=()=>{
+   const ctx=getAudio();if(!ctx)return;const t=ctx.currentTime;
+   [[880,.11,2.6],[1320,.065,2.2],[1760,.035,1.8],[2637,.018,1.3]].forEach(([f,g,d])=>tone(ctx,f,t,d,g,'sine'));
+ };
+ const playConch=()=>{
+   const ctx=getAudio();if(!ctx)return;const t=ctx.currentTime;
+   [0,1,2].forEach((i)=>{const osc=ctx.createOscillator(),amp=ctx.createGain(),filter=ctx.createBiquadFilter();osc.type='sawtooth';osc.frequency.setValueAtTime(190+i*2,t);osc.frequency.linearRampToValueAtTime(205+i*3,t+1.7);filter.type='lowpass';filter.frequency.value=950;amp.gain.setValueAtTime(.0001,t);amp.gain.exponentialRampToValueAtTime(.045/(i+1),t+.35);amp.gain.setValueAtTime(.045/(i+1),t+1.2);amp.gain.exponentialRampToValueAtTime(.0001,t+2.5);osc.connect(filter);filter.connect(amp);amp.connect(ctx.destination);osc.start(t);osc.stop(t+2.55);});
+ };
+ const shower=()=>{
+   if(!stage)return;const flowers=['🌸','🌼','🌺','💮'];
+   for(let i=0;i<18;i++){const el=document.createElement('span');el.className='falling-flower';el.textContent=flowers[i%flowers.length];el.style.left=(4+Math.random()*90)+'%';el.style.setProperty('--drift',(Math.random()*90-45)+'px');el.style.animationDelay=(Math.random()*.65)+'s';stage.appendChild(el);window.setTimeout(()=>el.remove(),3400);}
+ };
+ panel.querySelectorAll('[data-bhakti]').forEach(btn=>btn.addEventListener('click',()=>{
+   const action=btn.dataset.bhakti;
+   if(action==='pushp'){shower();feedback.textContent='🌸 माँ के चरणों में पुष्प अर्पित';}
+   if(action==='diya'){const lit=btn.classList.toggle('is-lit');btn.setAttribute('aria-pressed',String(lit));feedback.textContent=lit?'🪔 श्रद्धा का दीप प्रज्वलित':'दीप बुझा दिया गया';}
+   if(action==='shankh'){playConch();feedback.textContent='📯 मंगल शंखनाद';}
+   if(action==='ghanti'){playBell();feedback.textContent='🔔 माँ के दरबार में घंटी';}
+ }));
+}
+
 async function init() {
+  initBhaktiPanel();
   const form=$('contactForm');
   if(form) form.addEventListener('submit',e=>{e.preventDefault();$('formStatus').textContent=db?'संदेश भेजने की सुविधा सेटअप की जाँच के बाद सक्रिय की जाएगी।':'यह फ़ॉर्म संदेश भेजने के लिए अभी सक्रिय नहीं है। Supabase सेटअप के बाद इसे जोड़ा जाएगा।';});
   if(!db) return;
