@@ -798,3 +798,6 @@ body{letter-spacing:.05px}
 #previewHeading,#previewCopy{transition:transform .12s ease,width .12s ease}
 .hero-preview p,.hero-preview-tag{max-width:100%;white-space:normal;overflow-wrap:anywhere}
 .hero .hero-heading,.hero .hero-inner{box-sizing:border-box;min-width:0;}
+
+/* Admin hero photo crop and straighten controls */
+.crop-tools{border:1px solid #e8d6b4;border-radius:14px;background:#fffaf0;padding:16px;margin:16px 0}.crop-tools h3{color:#7c1018;margin:0 0 8px}.crop-tools input[type=range]{width:100%;accent-color:#a51620;min-height:32px}#heroImagePreview{position:relative;isolation:isolate;overflow:hidden!important;min-height:560px;height:560px;background:#5b1018;display:block}#heroPreviewImage{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:center center;z-index:0}#heroImagePreview:before{z-index:1;pointer-events:none}#heroImagePreview .hero-preview-copy{position:relative;z-index:2;width:100%;max-width:100%;padding:16px 12px}#heroImagePreview #previewHeading,#heroImagePreview #previewCopy{max-width:100%;overflow-wrap:anywhere}#heroImagePreview p,#heroImagePreview .hero-preview-tag{overflow-wrap:anywhere;white-space:normal}@media(max-width:650px){#heroImagePreview{height:560px;min-height:560px}.crop-tools{padding:12px}}
