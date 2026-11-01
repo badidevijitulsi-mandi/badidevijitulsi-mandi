@@ -122,6 +122,56 @@ body{background:#fff8df}.adminwrap{width:min(1120px,94%);margin:25px auto}.admin
  .field{margin:10px 0}
  .field input,.field textarea,.field select{min-height:42px}
 }
+
+/* Final mobile admin polish: compact header, clear navigation, contained image preview */
+@media(max-width:700px){
+  html,body{max-width:100%;overflow-x:hidden}
+  .adminwrap{width:100%;max-width:100%;margin:0;padding:8px;background:#fff8df}
+  .adminhead{padding:12px 14px!important;margin:0 0 9px!important;border-radius:0 0 13px 13px!important}
+  .adminhead .topline{display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:8px!important}
+  .adminhead h1{font-size:18px!important;line-height:1.25!important}
+  .adminhead p{font-size:12px!important}
+  .adminhead .btn{font-size:11px!important;min-height:34px!important;padding:6px 8px!important}
+  #app>.topline{display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;padding:9px 11px!important;margin:8px 0!important;background:#fffdf7!important;border:1px solid #ead9b7!important;border-radius:11px!important;box-shadow:none!important}
+  #app>.topline h2{font-size:15px!important;line-height:1.3!important;margin:0!important}
+  #app>.topline p{display:none!important}
+  #logoutBtn{font-size:12px!important;min-height:34px!important;padding:6px 10px!important}
+  #status{font-size:12px!important;margin:7px 0!important;padding:7px 10px!important}
+  .tabs{margin:8px 0!important;padding:8px!important;border-radius:12px!important;background:#f8edda!important}
+  .primary-tabs{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+  .primary-tabs button{min-height:43px!important;padding:7px 8px!important;font-size:13px!important;border-radius:9px!important}
+  .more-tabs summary{font-size:13px!important;padding:10px 12px!important;min-height:40px!important}
+  .secondary-tabs{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+  .secondary-tabs button{min-height:40px!important;font-size:12px!important;padding:7px!important}
+  .section-edit-hint{font-size:11px!important;padding:8px 10px!important;margin:7px 0!important}
+  #panel{margin-top:7px!important}
+  #panel>.box{padding:12px!important;margin:0 0 9px!important;border-radius:12px!important;box-shadow:0 2px 8px rgba(70,35,15,.045)!important}
+  #panel h2{font-size:17px!important;margin:0 0 8px!important}
+  #panel h3{font-size:15px!important}
+  #panel .small{font-size:11px!important;line-height:1.45!important}
+  #panel .field{margin:9px 0!important;gap:4px!important}
+  #panel .field label{font-size:13px!important}
+  #panel .field input,#panel .field textarea,#panel .field select{min-height:40px!important;padding:8px 10px!important;font-size:14px!important;border-radius:8px!important}
+  #panel .field textarea{min-height:78px!important}
+  #panel .btn{min-height:39px!important;padding:8px 12px!important;font-size:13px!important}
+  #panel .grid2{grid-template-columns:minmax(0,1fr)!important;gap:7px!important}
+  .hero-preview-wrap{padding:8px!important;margin:9px 0!important}
+  .hero-preview{height:230px!important;min-height:230px!important;max-height:230px!important;padding:12px!important;position:relative!important;overflow:hidden!important;display:block!important;border-radius:9px!important}
+  .hero-preview>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;z-index:0!important;display:block!important}
+  .hero-preview:before{z-index:1!important}
+  .hero-preview-copy{position:relative!important;z-index:2!important;width:100%!important;max-width:100%!important}
+  .hero-preview h3{font-size:19px!important;line-height:1.25!important}
+  .hero-preview p{font-size:12px!important;line-height:1.4!important;margin:4px 0!important}
+  .hero-preview .hero-preview-tag{font-size:11px!important;padding:4px 7px!important}
+  .itemrow{padding:9px!important;gap:7px!important}
+  .itemrow>div:last-child{display:flex;flex-wrap:wrap;gap:5px}
+}
+@media(min-width:701px){
+  .hero-preview{height:340px;min-height:340px;overflow:hidden;position:relative}
+  .hero-preview>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero-preview:before{z-index:1}
+  .hero-preview-copy{z-index:2}
+}
 </style></head><body><div class="adminwrap"><div class="adminhead"><div class="topline"><div><h1>🪔 वेबसाइट प्रशासन पैनल</h1><p>श्री श्री बड़ी देवी जी · तुलसी मंडी</p></div><a class="btn" href="index.html" target="_blank">लाइव वेबसाइट देखें ↗</a></div></div>
 <section id="loginBox" class="login"><h2>प्रशासन प्रवेश</h2><p class="small">केवल अधिकृत प्रशासक के लिए। पहले Supabase में इस ईमेल का उपयोगकर्ता बनाना होगा।</p><div class="grid2"><div class="field"><label>ईमेल</label><input id="email" type="email" autocomplete="username" placeholder="आपका व्यवस्थापक ईमेल"></div><div class="field"><label>पासवर्ड</label><input id="password" type="password" autocomplete="current-password" placeholder="पासवर्ड"></div></div><button class="btn" id="loginBtn">लॉगिन करें</button><div id="loginStatus" class="status">पहले config.js और setup.sql की सेटिंग पूरी करें।</div></section>
 <section id="app" class="hidden"><div class="topline"><div><h2>सामग्री प्रबंधन</h2><p class="small">यहाँ बदलाव सेव करने पर जुड़े हुए लाइव पेज पर दिखेंगे।</p></div><button class="btn danger" id="logoutBtn">लॉगआउट</button></div><div id="status" class="status">तैयार</div>
