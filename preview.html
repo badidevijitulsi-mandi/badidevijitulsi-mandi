@@ -1,44 +1,57 @@
-<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>बड़ी देवी जी — नया Preview</title>
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>बड़ी देवी जी | Premium Preview</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#fff8eb;font-family:system-ui,'Noto Sans Devanagari',sans-serif;color:#4b1118}.bar{position:sticky;top:0;z-index:99;padding:10px 14px;background:linear-gradient(110deg,#41050d,#7d1420,#4b0710);color:#ffe6a5;border-bottom:2px solid #d7a64c;box-shadow:0 5px 18px #25000655}.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800}.sub{font-size:11px;font-weight:400;color:#ffe9c4}.note{font-size:12px;margin:7px 0;color:#ffedce}.actions{display:flex;gap:8px;overflow:auto}button{white-space:nowrap;border:1px solid #d8ad60;border-radius:30px;background:linear-gradient(#fff4d6,#f5dca4);color:#65101a;padding:9px 13px;font-weight:750}.frame{height:calc(100dvh - 118px);min-height:600px}iframe{width:100%;height:100%;border:0;background:#fff8eb}@media(max-width:600px){.frame{height:calc(100dvh - 145px);min-height:550px}.note{font-size:11px}}
+*{box-sizing:border-box}body{margin:0;background:#f8efdf;color:#4b1118;font-family:system-ui,'Noto Sans Devanagari',sans-serif}.topbar{position:sticky;top:0;z-index:100;background:linear-gradient(115deg,#35040b,#71121e 55%,#3c050c);color:#ffdfa0;padding:10px 16px;border-bottom:2px solid #d6ad62;box-shadow:0 5px 20px #2b030b55}.topline{display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{font-weight:800;font-size:15px}.hint{font-size:11px;color:#f5dfb8}.tag{border:1px solid #d9b66d;border-radius:30px;padding:5px 10px;font-size:11px}.controls{display:flex;gap:8px;overflow-x:auto;margin-top:9px;padding-bottom:2px}.controls button{white-space:nowrap;border:1px solid #d6ad62;border-radius:30px;padding:8px 13px;background:linear-gradient(#fff4d9,#f0d49a);color:#5d0c17;font-weight:750}.frame{height:calc(100dvh - 105px);min-height:580px}iframe{width:100%;height:100%;border:0;display:block;background:#f8efdf}@media(max-width:600px){.frame{height:calc(100dvh - 132px);min-height:520px}.brand{font-size:13px}.hint{font-size:10px}}
 </style></head><body>
-<header class="bar"><div class="top"><div>श्री श्री बड़ी देवी जी · तुलसी मंडी<div class="sub">नई मैरून-गोल्ड थीम · पूरा वेबसाइट Preview</div></div><span>सिर्फ Preview</span></div><p class="note">नई थीम और सजावट देखें। मुख्य वेबसाइट अभी सुरक्षित है—यह बदलाव स्थायी नहीं है।</p><div class="actions"><button onclick="flowers()">🌸 पुष्प वर्षा</button><button onclick="aarti()">🪔 दीप आरती</button><button onclick="playConch()">🐚 असली शंख ध्वनि</button><button onclick="bell()">🔔 मंदिर घंटी</button></div></header>
-<main class="frame"><iframe id="site" src="/" title="नई थीम Preview"></iframe></main>
-<audio id="conch" preload="none" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Conch_shell.ogg"></audio>
+<header class="topbar"><div class="topline"><div><div class="brand">श्री श्री बड़ी देवी जी · तुलसी मंडी</div><div class="hint">Premium Maroon & Gold — Full Website Preview</div></div><span class="tag">PREVIEW</span></div><div class="controls"><button onclick="flowers()">🌸 पुष्प वर्षा</button><button onclick="aarti()">🪔 दीप आरती</button><button onclick="conch()">🐚 शंखनाद</button><button onclick="bell()">🔔 मंदिर घंटी</button></div></header>
+<div class="frame"><iframe id="site" src="/" title="नई मैरून गोल्ड थीम"></iframe></div>
+<audio id="conchAudio" preload="none" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Conch_shell.ogg"></audio>
 <script>
-const frame=document.getElementById('site'),audio=document.getElementById('conch');
-const css=`
-html,body{background:#fff8eb!important;color:#4b1118!important}
-.site-header{background:linear-gradient(110deg,#41050d,#781522 58%,#4d0710)!important;border-bottom:2px solid #d7a64c!important;box-shadow:0 6px 22px #30040b30!important}
-.brand-mark{background:linear-gradient(145deg,#ffdf91,#bd832d)!important;color:#5b0b15!important}
-.brand-copy strong,.brand-copy small,.main-nav a{color:#fff0c8!important}
-.hero{display:flex!important;flex-direction:column!important;overflow:hidden!important;background:#650d16!important;border-bottom:3px solid #d2a04a!important}
-.hero-heading{order:0!important;position:relative!important;inset:auto!important;padding:clamp(20px,4vw,42px) 5.7% 17px!important;background:linear-gradient(110deg,#4a0610,#791722)!important;text-align:left!important}
-.hero-heading h1{color:#ffdf91!important;font-size:clamp(34px,5.5vw,62px)!important}.hero-heading h2{color:#fff0cb!important}
-.hero-photo{order:1!important;position:relative!important;background:#39050b!important;border-block:1px solid #d4a54f!important}
-.hero-photo img{width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;display:block!important}
-.preview-diyas{order:2;position:relative;display:flex;justify-content:center;align-items:center;gap:clamp(4px,1.4vw,15px);min-height:78px;padding:9px 4% 14px;background:linear-gradient(#4b0710,#6b101a 55%,#43060d);border-bottom:1px solid #d6a64e;overflow:hidden}
-.preview-diyas span{font-size:clamp(22px,4vw,39px);filter:drop-shadow(0 0 8px #ffb52c);animation:flame 1.5s ease-in-out infinite alternate}.preview-diyas span:nth-child(2n){animation-delay:.5s}
-.preview-hand{position:absolute;right:3%;bottom:-3px;width:clamp(76px,13vw,126px);filter:drop-shadow(0 3px 5px #21000688)}
-@keyframes flame{to{transform:scale(1.1);filter:drop-shadow(0 0 13px #ffd46b)}}
-.hero-inner{order:3!important;position:relative!important;inset:auto!important;padding:24px 5.7% 30px!important;background:linear-gradient(145deg,#68101b,#40060d)!important;display:block!important}
-.hero-pill{border:1px solid #d8ad60!important;background:#ffffff12!important;color:#ffe5a1!important}.hero-desc{color:#fff5e1!important}
-.button-gold{background:linear-gradient(135deg,#ffe5a0,#d7a64c)!important;color:#57101a!important;border:1px solid #ffe1a0!important}
-.button-outline{border:1px solid #f1ce7d!important;color:#ffe9b9!important;background:#ffffff10!important}
-.shortcut{background:linear-gradient(145deg,#fffdf7,#fff0d4)!important;border:1px solid #dfbd79!important;border-radius:16px!important;color:#64121b!important;box-shadow:0 5px 18px #5c260d12!important}
-.info-card,.contact-card,.media-card,.social{background:linear-gradient(145deg,#fffdf8,#fff4df)!important;border:1px solid #dfbd79!important;border-radius:19px!important;box-shadow:0 8px 24px #57200e12!important;color:#4b1118!important}
-.section-heading h2,.info-card h2,.contact-card h2{color:#64111b!important}.eyebrow{color:#a36a20!important}
-.site-footer{background:linear-gradient(110deg,#3c050c,#71121d)!important;border-top:2px solid #d5a34d!important;color:#ffedc8!important}
+const frame=document.getElementById('site'),audio=document.getElementById('conchAudio');
+const theme=`
+html{scroll-behavior:smooth!important;scroll-padding-top:90px!important}
+body{background:#fff9ed!important;color:#451018!important}
+.site-header{background:linear-gradient(110deg,#39050d,#761521 58%,#40060c)!important;border-bottom:2px solid #d7ad5c!important;box-shadow:0 5px 20px #32050c33!important}
+.brand-mark{background:linear-gradient(145deg,#f9df9d,#b87d2c)!important;color:#570b15!important;border-color:#f4d58d!important}
+.brand-copy strong,.brand-copy small,.main-nav a{color:#fff0cb!important}
+.main-nav a:hover{color:#ffcf68!important}.menu-toggle{border-color:#d7ad5c!important;color:#ffedc8!important}
+.hero{background:#4b0710!important;color:#fff4d8!important;display:block!important;position:relative!important}
+.hero-heading{position:relative!important;text-align:center!important;padding:clamp(20px,3vw,34px) 16px 18px!important;background:linear-gradient(120deg,#39050c,#74121d 55%,#42060d)!important;border-bottom:1px solid #d7ad5c!important}
+.hero-heading h1{color:#ffe3a0!important;text-shadow:0 3px 10px #21000688!important;font-size:clamp(34px,5vw,58px)!important}
+.hero-heading h2{color:#fff2d2!important}
+.hero-photo{display:block!important;width:100%!important;height:auto!important;min-height:0!important;background:#3b050c!important;line-height:0!important;border-bottom:1px solid #d7ad5c!important}
+.hero-photo img{display:block!important;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center top!important}
+.preview-lamp-row{position:relative;display:flex;align-items:center;justify-content:center;gap:clamp(2px,1.3vw,14px);min-height:76px;padding:10px 3% 12px;background:linear-gradient(180deg,#4b0710,#72131d 55%,#3d050c);border-bottom:1px solid #d6ad62;overflow:hidden}
+.preview-lamp-row .lamp{font-size:clamp(19px,3.5vw,36px);filter:drop-shadow(0 0 9px #ffb72e);animation:lampGlow 1.5s ease-in-out infinite alternate}
+.preview-lamp-row .lamp:nth-child(2n){animation-delay:.5s}
+.preview-hand{position:absolute;right:3%;bottom:-2px;width:clamp(72px,12vw,118px);height:auto;filter:drop-shadow(0 3px 6px #16000688)}
+@keyframes lampGlow{to{transform:scale(1.09);filter:drop-shadow(0 0 14px #ffd36d)}}
+.hero-inner{position:relative!important;inset:auto!important;width:min(1160px,91%)!important;min-height:0!important;margin:auto!important;padding:26px 0 32px!important;background:linear-gradient(135deg,#71131e,#3b050c)!important;display:flex!important;align-items:center!important}
+.hero-copy{max-width:850px!important}.hero-pill{color:#ffe5a3!important;border-color:#d8b56a!important;background:#ffffff0b!important}
+.hero-desc{color:#fff2dc!important;font-size:clamp(14px,1.7vw,18px)!important}
+.button-gold{background:linear-gradient(135deg,#ffedb7,#d5a64e)!important;border-color:#f2d58e!important;color:#51101a!important;box-shadow:0 5px 15px #1c00052b!important}
+.button-outline{border-color:#e2c27b!important;color:#fff0cc!important;background:#ffffff0b!important}
+.shortcut-wrap{background:#fff5e3!important;border-block:1px solid #e3c98f!important}
+.shortcut{background:linear-gradient(145deg,#fffefa,#f8e9c9)!important;border:1px solid #dfc48a!important;border-radius:14px!important;box-shadow:0 5px 16px #51120e0e!important}
+.shortcut strong{color:#65111c!important}.shortcut-icon{color:#9c6a24!important}
+.page-wrap{background:transparent!important}
+.section-heading{border-color:#e5d1a7!important}.section-heading h2,.info-card h2,.contact-card h2{color:#67121d!important}
+.eyebrow{color:#a7772d!important}
+.info-card,.contact-card,.media-card{background:linear-gradient(145deg,#fffefa,#fff4df)!important;border:1px solid #e0c58c!important;border-radius:16px!important;box-shadow:0 8px 25px #4a100e12!important}
+.info-card p,.contact-card p{color:#675348!important}
+.event-row,.committee-row{border-color:#ead9b8!important}.event-date{background:#6b111b!important;color:#ffe7ad!important}
+.social{border-radius:12px!important;box-shadow:0 5px 14px #2c071522!important}
+.media-card{overflow:hidden!important}.media-body h3{color:#65111c!important}
+.contact-card input,.contact-card textarea{border-color:#ddc99f!important;background:#fffdf8!important}
+.site-footer{background:linear-gradient(110deg,#35040b,#74131f 60%,#3b050c)!important;border-top:2px solid #d7ad5c!important;color:#ffedc8!important}
 .site-footer a,.site-footer p,.footer-brand strong,.footer-brand small{color:#ffedc8!important}
-@media(max-width:700px){.preview-diyas{min-height:65px;gap:3px}.preview-hand{width:78px;right:1%}.hero-inner{padding:19px 5.7% 24px!important}}
+.creator-brand{border-color:#d7ad5c!important;background:linear-gradient(135deg,#ffffff0c,#e7c66b1c)!important}
+@media(max-width:700px){.preview-lamp-row{min-height:64px;gap:0;padding:8px 2% 10px}.preview-hand{width:73px;right:1%}.hero-inner{padding:20px 0 24px!important}.hero-desc{font-size:14px!important}}
 `;
-function decorate(){try{const d=frame.contentDocument;if(!d||!d.head)return;if(!d.getElementById('previewTheme')){const s=d.createElement('style');s.id='previewTheme';s.textContent=css;d.head.appendChild(s)}const p=d.getElementById('heroPhoto');if(p&&!d.getElementById('previewDiyas')){const r=d.createElement('div');r.id='previewDiyas';r.className='preview-diyas';r.innerHTML='<span>🪔</span>'.repeat(9)+'<svg class="preview-hand" viewBox="0 0 170 150" role="img" aria-label="दीप अर्पित करता हुआ हाथ"><defs><linearGradient id="sk" x2="1" y2="1"><stop stop-color="#f8d0a0"/><stop offset=".6" stop-color="#c78350"/><stop offset="1" stop-color="#8f4d32"/></linearGradient></defs><path d="M18 146Q30 122 48 106L70 83Q77 75 84 81Q89 86 83 94L69 109Q80 102 96 91L121 73Q130 67 136 74Q141 81 132 88L111 105Q128 95 139 100Q146 106 137 114L113 130Q105 139 101 150Z" fill="url(#sk)" stroke="#6d321f" stroke-width="2"/><path d="M42 117Q60 99 74 88M65 123Q83 108 98 99" fill="none" stroke="#f6d0aa" stroke-width="3" stroke-linecap="round"/><path d="M76 75Q85 55 101 75Q111 86 121 83Q112 103 94 104Q78 99 76 75Z" fill="#e5a33e" stroke="#8a4c17" stroke-width="2"/><path d="M96 71Q88 56 100 42Q113 58 104 72Z" fill="#ffbd32"/><path d="M100 67Q96 56 101 49Q107 59 103 68Z" fill="#fff4a6"/></svg>';p.insertAdjacentElement('afterend',r)} }catch(e){}}
-frame.addEventListener('load',()=>{decorate();setTimeout(decorate,500);setTimeout(decorate,1500)});
-function layer(){try{const d=frame.contentDocument;let l=d.getElementById('previewFx');if(!l){l=d.createElement('div');l.id='previewFx';l.style.cssText='position:fixed;inset:0;z-index:99999;pointer-events:none;overflow:hidden';d.body.appendChild(l)}return l}catch(e){return null}}
-function flowers(){const l=layer();if(!l)return;for(let i=0;i<30;i++){const e=l.ownerDocument.createElement('span');e.textContent=['🌸','🌼','🏵️','🌺'][i%4];e.style.cssText='position:absolute;left:'+Math.random()*100+'%;top:-30px;font-size:25px;animation:fall 3.5s linear forwards;animation-delay:'+Math.random()+'s';l.appendChild(e);setTimeout(()=>e.remove(),4600)}}
-function aarti(){const l=layer();if(!l)return;const e=l.ownerDocument.createElement('span');e.textContent='🪔';e.style.cssText='position:absolute;left:50%;top:48%;font-size:80px;filter:drop-shadow(0 0 20px #ffb42c);animation:glow 2.5s forwards';l.appendChild(e);setTimeout(()=>e.remove(),2600)}
-function playConch(){audio.currentTime=0;audio.play().catch(()=>alert('शंख ध्वनि चलाने के लिए दोबारा बटन दबाएँ।'))}
-function bell(){const l=layer();if(!l)return;const e=l.ownerDocument.createElement('span');e.textContent='🔔';e.style.cssText='position:absolute;right:8%;top:12%;font-size:64px;transform-origin:50% 0;animation:swing 1.8s forwards';l.appendChild(e);setTimeout(()=>e.remove(),1900)}
-</script>
-<style>@keyframes fall{to{transform:translateY(110vh) rotate(600deg);opacity:.1}}@keyframes glow{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}20%,80%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.5)}}@keyframes swing{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(18deg)}40%,80%{transform:rotate(-18deg)}}</style>
-</body></html>
+function decorate(){try{const d=frame.contentDocument;if(!d||!d.head||!d.body)return;if(!d.getElementById('premiumPreviewTheme')){const s=d.createElement('style');s.id='premiumPreviewTheme';s.textContent=theme;d.head.appendChild(s)}const p=d.getElementById('heroPhoto');if(p&&!d.getElementById('previewLampRow')){const row=d.createElement('div');row.id='previewLampRow';row.className='preview-lamp-row';row.innerHTML=Array.from({length:11},()=>'<span class="lamp">🪔</span>').join('')+'<svg class="preview-hand" viewBox="0 0 170 150" role="img" aria-label="दीप अर्पित करता हुआ हाथ"><defs><linearGradient id="skin" x2="1" y2="1"><stop stop-color="#f6d0a4"/><stop offset=".6" stop-color="#c27e50"/><stop offset="1" stop-color="#85452f"/></linearGradient></defs><path d="M18 146Q30 122 48 106L70 83Q77 75 84 81Q89 86 83 94L69 109Q80 102 96 91L121 73Q130 67 136 74Q141 81 132 88L111 105Q128 95 139 100Q146 106 137 114L113 130Q105 139 101 150Z" fill="url(#skin)" stroke="#65311f" stroke-width="2"/><path d="M42 117Q60 99 74 88M65 123Q83 108 98 99" fill="none" stroke="#f9dfc1" stroke-width="3" stroke-linecap="round"/><path d="M76 75Q85 55 101 75Q111 86 121 83Q112 103 94 104Q78 99 76 75Z" fill="#dfa33e" stroke="#875019" stroke-width="2"/><path d="M96 71Q88 56 100 42Q113 58 104 72Z" fill="#ffb72f"/><path d="M100 67Q96 56 101 49Q107 59 103 68Z" fill="#fff5b4"/></svg>';p.insertAdjacentElement('afterend',row)}}catch(e){}}
+frame.addEventListener('load',()=>{decorate();setTimeout(decorate,700);setTimeout(decorate,1800)});
+function fx(){try{const d=frame.contentDocument;let l=d.getElementById('previewFx');if(!l){l=d.createElement('div');l.id='previewFx';l.style.cssText='position:fixed;inset:0;z-index:999999;pointer-events:none;overflow:hidden';d.body.appendChild(l)}return l}catch(e){return null}}
+function flowers(){const l=fx();if(!l)return;for(let i=0;i<35;i++){const e=l.ownerDocument.createElement('span');e.textContent=['🌸','🌼','🌺','🏵️'][i%4];e.style.cssText='position:absolute;left:'+Math.random()*100+'%;top:-30px;font-size:25px;animation:petalFall 3.6s linear forwards;animation-delay:'+Math.random()+'s';l.appendChild(e);setTimeout(()=>e.remove(),4700)}}
+function aarti(){const l=fx();if(!l)return;const e=l.ownerDocument.createElement('span');e.textContent='🪔';e.style.cssText='position:absolute;left:50%;top:48%;font-size:78px;filter:drop-shadow(0 0 22px #ffb52c);animation:aartiGlow 2.5s forwards';l.appendChild(e);setTimeout(()=>e.remove(),2600)}
+function conch(){audio.currentTime=0;audio.play().catch(()=>alert('शंख की रिकॉर्डेड ध्वनि चलाने के लिए फिर से बटन दबाएँ।'))}
+function bell(){const l=fx();if(!l)return;const e=l.ownerDocument.createElement('span');e.textContent='🔔';e.style.cssText='position:absolute;right:8%;top:12%;font-size:65px;transform-origin:50% 0;animation:bellSwing 1.9s forwards';l.appendChild(e);setTimeout(()=>e.remove(),2000)}
+</script><style>@keyframes petalFall{to{transform:translateY(110vh) rotate(620deg);opacity:.08}}@keyframes aartiGlow{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}20%,80%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.5)}}@keyframes bellSwing{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(18deg)}40%,80%{transform:rotate(-18deg)}}</style></body></html>
