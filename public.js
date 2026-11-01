@@ -95,7 +95,7 @@ const old=document.getElementById('siteThemeOverrides');if(old)old.remove();cons
 // Devotional actions: flowers, a persistent diya toggle, and gesture-triggered conch/bell tones.
 function initBhaktiPanel(){
  const panel=document.querySelector('.bhakti-panel');if(!panel)return;
- const feedback=$('bhaktiFeedback'),stage=$('flowerStage');
+ const feedback=$('bhaktiFeedback'),stage=$('flowerStage'),hero=document.querySelector('.hero');
  let audioContext;
  const getAudio=()=>{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audioContext)audioContext=new C();if(audioContext.state==='suspended')audioContext.resume();return audioContext;};
  const tone=(ctx,freq,start,duration,gain,type='sine',detune=0)=>{
@@ -116,7 +116,7 @@ function initBhaktiPanel(){
  panel.querySelectorAll('[data-bhakti]').forEach(btn=>btn.addEventListener('click',()=>{
    const action=btn.dataset.bhakti;
    if(action==='pushp'){shower();feedback.textContent='🌸 माँ के चरणों में पुष्प अर्पित';}
-   if(action==='diya'){const lit=btn.classList.toggle('is-lit');btn.setAttribute('aria-pressed',String(lit));feedback.textContent=lit?'🪔 श्रद्धा का दीप प्रज्वलित':'दीप बुझा दिया गया';}
+   if(action==='diya'){const lit=btn.classList.toggle('is-lit');btn.setAttribute('aria-pressed',String(lit));if(hero)hero.classList.toggle('diya-active',lit);feedback.textContent=lit?'🪔 तस्वीर पर श्रद्धा का दीप प्रज्वलित':'दीप बुझा दिया गया';}
    if(action==='shankh'){playConch();feedback.textContent='📯 मंगल शंखनाद';}
    if(action==='ghanti'){playBell();feedback.textContent='🔔 माँ के दरबार में घंटी';}
  }));
