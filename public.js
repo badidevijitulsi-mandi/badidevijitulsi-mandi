@@ -95,7 +95,7 @@ async function init() {
   if(form) form.addEventListener('submit',e=>{e.preventDefault();$('formStatus').textContent=db?'संदेश भेजने की सुविधा सेटअप की जाँच के बाद सक्रिय की जाएगी।':'यह फ़ॉर्म संदेश भेजने के लिए अभी सक्रिय नहीं है। Supabase सेटअप के बाद इसे जोड़ा जाएगा।';});
   if(!db) return;
   const [hero,history,loc,social,contact,gallery,videos,events,committee,announcements,theme]=await Promise.all([content('hero'),content('history'),content('location'),content('social'),content('contact'),rows('gallery'),rows('creator_videos'),rows('events'),rows('committee_members'),rows('announcements','created_at'),content('theme')]);
-  if(theme?.theme_id)applySiteTheme(theme.theme_id);
+  if(theme?.theme_id)applySiteTheme(theme.custom_theme||theme.theme_id);
   if(hero){if(hero.title){$('heroTitle').textContent=hero.title;$('brandTitle').textContent=hero.title;}if(hero.subtitle){$('heroSub').textContent=hero.subtitle;$('brandSub').textContent=hero.subtitle+' · पटना';}if(hero.tagline)$('heroTag').textContent=hero.tagline;if(hero.description)$('heroDesc').textContent=hero.description;if(hero.background_url){const photo=$('heroPhoto');if(photo){photo.innerHTML=`<img src="${esc(hero.background_url)}" alt="श्री श्री बड़ी देवी जी माँ दुर्गा के दर्शन">`;photo.hidden=false;}}}
   if(history){$('historyBody').textContent=history.body||$('historyBody').textContent;const h=$('historyGallery');if(h)h.innerHTML='';}
   if(loc){if(loc.address)$('address').textContent=loc.address;if(loc.map_url)$('mapLink').href=loc.map_url;}
