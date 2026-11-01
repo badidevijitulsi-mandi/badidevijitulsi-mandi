@@ -53,10 +53,28 @@ body{background:#fff8df}.adminwrap{width:min(1120px,94%);margin:25px auto}.admin
  .login,.box{padding:14px}
 }
 
+
+/* Keep the everyday admin tasks visible; tuck rarely used tools away */
+.tabs{display:block;position:static;padding:12px}
+.primary-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.primary-tabs button{min-width:0;min-height:58px;font-size:15px}
+.more-tabs{margin-top:10px;border-top:1px solid #ead9b7;padding-top:10px}
+.more-tabs summary{cursor:pointer;list-style:none;font-weight:700;color:#7c1018;background:#fff5df;border:1px solid #ead9b7;border-radius:10px;padding:13px 15px;min-height:46px}
+.more-tabs summary::-webkit-details-marker{display:none}
+.more-tabs summary:after{content:"＋";float:right;font-weight:800}
+.more-tabs[open] summary:after{content:"−"}
+.secondary-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px;padding:10px 2px 2px}
+.secondary-tabs button{min-height:44px}
+@media(max-width:700px){
+ .tabs{top:auto;max-height:none;overflow:visible;padding:9px}
+ .primary-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .primary-tabs button{min-height:54px;font-size:14px}
+ .secondary-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 </style></head><body><div class="adminwrap"><div class="adminhead"><div class="topline"><div><h1>🪔 वेबसाइट प्रशासन पैनल</h1><p>श्री श्री बड़ी देवी जी · तुलसी मंडी</p></div><a class="btn" href="index.html" target="_blank">लाइव वेबसाइट देखें ↗</a></div></div>
 <section id="loginBox" class="login"><h2>प्रशासन प्रवेश</h2><p class="small">केवल अधिकृत प्रशासक के लिए। पहले Supabase में इस ईमेल का उपयोगकर्ता बनाना होगा।</p><div class="grid2"><div class="field"><label>ईमेल</label><input id="email" type="email" autocomplete="username" placeholder="आपका व्यवस्थापक ईमेल"></div><div class="field"><label>पासवर्ड</label><input id="password" type="password" autocomplete="current-password" placeholder="पासवर्ड"></div></div><button class="btn" id="loginBtn">लॉगिन करें</button><div id="loginStatus" class="status">पहले config.js और setup.sql की सेटिंग पूरी करें।</div></section>
 <section id="app" class="hidden"><div class="topline"><div><h2>सामग्री प्रबंधन</h2><p class="small">यहाँ बदलाव सेव करने पर जुड़े हुए लाइव पेज पर दिखेंगे।</p></div><button class="btn danger" id="logoutBtn">लॉगआउट</button></div><div id="status" class="status">तैयार</div>
-<div class="tabs" id="tabs"><button data-tab="home" class="active">मुख्य पृष्ठ</button><button data-tab="theme">🎨 थीम चुनें</button><button data-tab="history">इतिहास</button><button data-tab="gallery">चित्र दीर्घा</button><button data-tab="videos">क्रिएटर वीडियो</button><button data-tab="events">कार्यक्रम</button><button data-tab="committee">समिति सदस्य</button><button data-tab="social">सोशल मीडिया</button><button data-tab="location">स्थान व संपर्क</button><button data-tab="announcements">सूचनाएँ</button></div>
+<div class="tabs" id="tabs"><div class="primary-tabs"><button data-tab="home" class="active">🏠 मुख्य पृष्ठ</button><button data-tab="gallery">🖼️ फोटो गैलरी</button><button data-tab="videos">▶ वीडियो</button><button data-tab="events">🪔 कार्यक्रम</button></div><details class="more-tabs"><summary>अन्य सेटिंग और कम इस्तेमाल होने वाले विकल्प</summary><div class="secondary-tabs"><button data-tab="theme">🎨 थीम</button><button data-tab="history">इतिहास</button><button data-tab="committee">समिति सदस्य</button><button data-tab="social">सोशल मीडिया</button><button data-tab="location">स्थान व संपर्क</button><button data-tab="announcements">सूचनाएँ</button></div></details></div>
 <div class="box" id="livePreviewBox"><div class="topline"><div><h2>लाइव वेबसाइट प्रीव्यू</h2><p class="small">यहीं वेबसाइट देखें। फोटो/जानकारी सेव करने के बाद “प्रीव्यू रीफ़्रेश” दबाएँ।</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="refreshPreview">रीफ़्रेश ↻</button><button class="btn" id="openFullPreview">पूरी स्क्रीन में देखें ⛶</button><button class="btn" id="togglePreview">प्रीव्यू छिपाएँ/दिखाएँ</button></div></div><iframe id="livePreview" title="लाइव वेबसाइट प्रीव्यू" src="index.html" style="display:block;width:100%;height:560px;border:1px solid #ead9b7;border-radius:10px;background:#fff8df"></iframe></div><div id="panel"></div></section></div>
 <div class="admin-fullscreen" id="adminFullPreview"><div class="admin-fullscreen-bar"><strong>वेबसाइट का बड़ा प्रीव्यू</strong><div style="display:flex;gap:8px"><button class="btn" id="reloadFullPreview">रीफ़्रेश ↻</button><button class="btn" id="closeFullPreview">बंद करें ✕</button></div></div><iframe id="fullPreviewFrame" title="पूरी स्क्रीन वेबसाइट प्रीव्यू" src="index.html"></iframe></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="https://cdn.jsdelivr.net/npm/tus-js-client@latest/dist/tus.min.js"></script><script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script><script src="config.js"></script><script>
 const configured=window.supabase&&window.SUPABASE_URL&&!SUPABASE_URL.includes('PASTE_')&&window.SUPABASE_ANON_KEY&&!SUPABASE_ANON_KEY.includes('PASTE_');const db=configured?supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY):null;let active='home',editing=null;const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));function status(s){$('status').textContent=s}function loginStatus(s){$('loginStatus').textContent=s}
