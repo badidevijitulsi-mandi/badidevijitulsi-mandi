@@ -966,3 +966,30 @@ body{letter-spacing:.05px}
 @media(max-width:390px){
   .hero .hero-inner{padding:100px 3% 48px!important}
 }
+
+
+/* Pushp animation now falls over the Devi photo; temple bell swings at top-right */
+.hero-photo{position:relative!important;overflow:hidden!important}
+.hero-photo .flower-stage.on-devi-photo{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ z-index:8!important;pointer-events:none!important;overflow:hidden!important
+}
+.hero-photo .falling-flower{z-index:2!important;top:-30px!important;font-size:clamp(18px,4vw,27px)!important}
+.photo-temple-bell{
+ position:absolute;z-index:12;top:16px;right:16px;font-size:clamp(30px,7vw,48px);
+ line-height:1;transform-origin:50% 0;filter:drop-shadow(0 3px 5px rgba(0,0,0,.45));
+ opacity:0;pointer-events:none
+}
+.photo-temple-bell.ringing{opacity:1;animation:templeBellSwing 1.35s ease-in-out both}
+@keyframes templeBellSwing{
+ 0%{transform:rotate(0) scale(.7);opacity:0}
+ 10%{opacity:1;transform:rotate(-24deg) scale(1)}
+ 24%{transform:rotate(22deg)}
+ 38%{transform:rotate(-18deg)}
+ 52%{transform:rotate(15deg)}
+ 66%{transform:rotate(-10deg)}
+ 80%{transform:rotate(6deg)}
+ 100%{transform:rotate(0);opacity:0}
+}
+@media(max-width:520px){.photo-temple-bell{top:12px;right:12px;font-size:34px}}
+@media(prefers-reduced-motion:reduce){.photo-temple-bell.ringing{animation:none!important;opacity:1}}
