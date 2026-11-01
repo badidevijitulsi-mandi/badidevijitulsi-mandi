@@ -96,6 +96,10 @@ const old=document.getElementById('siteThemeOverrides');if(old)old.remove();cons
 function initBhaktiPanel(){
  const panel=document.querySelector('.bhakti-panel');if(!panel)return;
  const feedback=$('bhaktiFeedback'),stage=$('flowerStage');
+ const photo=document.querySelector('.hero-photo');
+ if(photo&&stage){photo.appendChild(stage);stage.classList.add('on-devi-photo');}
+ let photoBell=photo?.querySelector('.photo-temple-bell');
+ if(photo&&!photoBell){photoBell=document.createElement('div');photoBell.className='photo-temple-bell';photoBell.setAttribute('aria-hidden','true');photoBell.textContent='🔔';photo.appendChild(photoBell);}
  let audioContext;
  const getAudio=()=>{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audioContext)audioContext=new C();if(audioContext.state==='suspended')audioContext.resume();return audioContext;};
  const tone=(ctx,freq,start,duration,gain,type='sine',detune=0)=>{
@@ -118,7 +122,10 @@ function initBhaktiPanel(){
    if(action==='pushp'){shower();feedback.textContent='🌸 माँ के चरणों में पुष्प अर्पित';}
    if(action==='diya'){const lit=btn.classList.toggle('is-lit');btn.setAttribute('aria-pressed',String(lit));panel.classList.toggle('diya-active',lit);feedback.textContent=lit?'🪔 दीप प्रज्वलित है':'दीप बुझा दिया गया';}
    if(action==='shankh'){playConch();feedback.textContent='📯 मंगल शंखनाद';}
-   if(action==='ghanti'){playBell();feedback.textContent='🔔 माँ के दरबार में घंटी';}
+   if(action==='ghanti'){
+     playBell();feedback.textContent='🔔 माँ के दरबार में घंटी';
+     if(photoBell){photoBell.classList.remove('ringing');void photoBell.offsetWidth;photoBell.classList.add('ringing');}
+   }
  }));
 }
 
