@@ -801,3 +801,27 @@ body{letter-spacing:.05px}
 
 /* Admin hero photo crop and straighten controls */
 .crop-tools{border:1px solid #e8d6b4;border-radius:14px;background:#fffaf0;padding:16px;margin:16px 0}.crop-tools h3{color:#7c1018;margin:0 0 8px}.crop-tools input[type=range]{width:100%;accent-color:#a51620;min-height:32px}#heroImagePreview{position:relative;isolation:isolate;overflow:hidden!important;min-height:560px;height:560px;background:#5b1018;display:block}#heroPreviewImage{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:center center;z-index:0}#heroImagePreview:before{z-index:1;pointer-events:none}#heroImagePreview .hero-preview-copy{position:relative;z-index:2;width:100%;max-width:100%;padding:16px 12px}#heroImagePreview #previewHeading,#heroImagePreview #previewCopy{max-width:100%;overflow-wrap:anywhere}#heroImagePreview p,#heroImagePreview .hero-preview-tag{overflow-wrap:anywhere;white-space:normal}@media(max-width:650px){#heroImagePreview{height:560px;min-height:560px}.crop-tools{padding:12px}}
+
+
+/* Devotional interaction panel below the hero action buttons */
+.bhakti-panel{position:relative;isolation:isolate;width:min(760px,91%);margin:24px auto 30px;padding:18px 22px 13px;border:1.5px solid #d8ad4d;border-radius:19px;background:linear-gradient(145deg,#fffdf5,#fff1cf);box-shadow:0 9px 28px rgba(89,23,13,.13),inset 0 0 0 4px rgba(220,177,83,.10);overflow:hidden;text-align:center}
+.bhakti-panel:before,.bhakti-panel:after{content:"";position:absolute;z-index:-1;width:110px;height:110px;border:1px solid rgba(187,133,40,.18);border-radius:50%;top:-65px}
+.bhakti-panel:before{left:-48px}.bhakti-panel:after{right:-48px}
+.bhakti-panel-heading{display:flex;align-items:center;justify-content:center;gap:15px;color:#8e1b22}
+.bhakti-panel-heading h2{font-family:'Tiro Devanagari Hindi','Hind',serif;font-size:20px;line-height:1.35;margin:0;color:#861923}
+.bhakti-panel-heading p{font-size:10px;color:#806b5b;margin:1px 0 0}
+.bhakti-kicker{display:block;font-size:9px;letter-spacing:1.5px;color:#ad812e}
+.bhakti-ornament{font-size:19px;color:#c99a3c}
+.bhakti-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:15px auto 5px;max-width:610px}
+.bhakti-action{display:flex;min-width:0;min-height:69px;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 5px;border:1px solid #e4c77e;border-radius:13px;background:linear-gradient(180deg,#fffefa,#fff4d9);color:#761923;font-family:'Hind',sans-serif;font-size:12px;font-weight:700;box-shadow:0 3px 9px rgba(104,45,15,.08);transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.bhakti-action:active{transform:scale(.96)}.bhakti-action:hover,.bhakti-action:focus-visible{border-color:#b88729;box-shadow:0 6px 14px rgba(104,45,15,.14);outline:none}
+.bhakti-icon{font-size:24px;line-height:1.15;filter:drop-shadow(0 2px 2px rgba(90,40,10,.12))}
+.bhakti-action.is-lit{background:linear-gradient(180deg,#fff0b8,#ffdb76);border-color:#d69a2e;box-shadow:0 0 0 2px #e7b94c38,0 5px 13px #9b5a1830}
+.bhakti-action.is-lit .diya-icon{filter:drop-shadow(0 0 7px #e99b21);animation:diyaGlow 1.5s ease-in-out infinite alternate}
+.bhakti-feedback{min-height:17px;font-size:10px;color:#9a762e;letter-spacing:.3px}
+.flower-stage{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3}
+.falling-flower{position:absolute;top:-28px;font-size:22px;animation:flowerFall 2.6s ease-in forwards;filter:drop-shadow(0 2px 3px #7b351944)}
+@keyframes flowerFall{0%{transform:translate3d(0,-15px,0) rotate(0deg) scale(.65);opacity:0}12%{opacity:1}100%{transform:translate3d(var(--drift),240px,0) rotate(300deg) scale(1);opacity:0}}
+@keyframes diyaGlow{from{transform:scale(1)}to{transform:scale(1.12)}}
+@media(max-width:520px){.bhakti-panel{width:92%;margin:18px auto 23px;padding:14px 10px 9px;border-radius:15px}.bhakti-panel-heading h2{font-size:18px}.bhakti-actions{gap:7px;margin-top:12px}.bhakti-action{min-height:63px;padding:7px 2px;font-size:10px;border-radius:11px}.bhakti-icon{font-size:22px}.bhakti-feedback{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.falling-flower,.bhakti-action.is-lit .diya-icon{animation:none!important}}
