@@ -1010,3 +1010,18 @@ body{letter-spacing:.05px}
  animation:photoDiyaGlow 1s ease-in-out infinite alternate!important;
 }
 .hero-photo .flower-stage.on-devi-photo.diya-active .photo-diya{display:block!important}
+
+
+/* Smooth lightweight flower rain: fewer simultaneous GPU-animated petals */
+.hero-photo .flower-stage.on-devi-photo .falling-flower{
+  top:-32px!important;
+  font-size:clamp(17px,3.6vw,24px)!important;
+  will-change:transform,opacity;
+  animation:photoFlowerFall 2.85s linear forwards!important;
+}
+@keyframes photoFlowerFall{
+  0%{transform:translate3d(0,-25px,0) rotate(0deg) scale(.82);opacity:0}
+  10%{opacity:1}
+  90%{opacity:.95}
+  100%{transform:translate3d(var(--drift),calc(100% + 70px),0) rotate(250deg) scale(1);opacity:0}
+}
