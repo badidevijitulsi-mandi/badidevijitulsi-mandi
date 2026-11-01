@@ -9,7 +9,7 @@ function showSocial(s) {
   if(!s) return;
   const items=[['instagram','◎','इंस्टाग्राम','रील्स और तस्वीरें','instagram'],['facebook','f','फेसबुक','फोटो और अपडेट','facebook'],['youtube','▶','यूट्यूब','पूजा कार्यक्रम के वीडियो','youtube'],['whatsapp','◉','व्हाट्सऐप','सूचनाएँ और संपर्क','whatsapp']];
   s.instagram='https://www.instagram.com/badidevijetulsimandi?vrfl=OTl4M2tldmJoaGN5';
-  s.facebook='https://www.facebook.com/share/1EaFwpwDue/';
+  s.facebook='https://www.facebook.com/share/1Hw2iwxWK5/';
   const configuredItems=items.filter(x=>['instagram','facebook'].includes(x[0]));
   if(!configuredItems.length) return;
   $('socialGrid').innerHTML=configuredItems.map(x=>`<a class="social ${x[4]}" href="${esc(s[x[0]])}" target="_blank" rel="noopener"><span class="social-symbol">${x[1]}</span><span><strong>${x[2]}</strong><small>${x[3]}</small></span></a>`).join('');
@@ -90,6 +90,23 @@ let p;if(typeof theme==='object'&&theme.colors){const c=theme.colors;p={backgrou
 const r=document.documentElement;r.style.setProperty('--yellow',p.background);r.style.setProperty('--yellow-strong',p.yellowStrong);r.style.setProperty('--card',p.card);r.style.setProperty('--maroon',p.primary);r.style.setProperty('--maroon-deep',p.deep);r.style.setProperty('--maroon-light',p.light);r.style.setProperty('--gold',p.accent);r.style.setProperty('--gold-deep',p.accentDeep);r.style.setProperty('--ink',p.text);r.style.setProperty('--muted',p.muted);r.style.setProperty('--line',p.line);
 const old=document.getElementById('siteThemeOverrides');if(old)old.remove();const style=document.createElement('style');style.id='siteThemeOverrides';style.textContent='.site-header{background:var(--maroon)}.hero{background-color:var(--maroon-deep)}.shortcut-wrap{background:var(--yellow)}.shortcut{background:var(--card);border-color:var(--line)}.shortcut strong,.section-heading h2,.info-card h2,.contact-card h2,.media-body h3,.announcement strong{color:var(--maroon)}.announcement{background:var(--card);border-color:var(--line);border-left-color:var(--gold-deep)}.media-card,.contact-card,.info-card{background:var(--card);border-color:var(--line)}.button-gold{background:var(--gold);border-color:var(--gold)}.button-outline{border-color:var(--gold);color:var(--maroon)}.text-link{color:var(--maroon);border-color:var(--line)}.site-footer{background:var(--maroon-deep)}';document.head.appendChild(style);document.querySelector('meta[name="theme-color"]')?.setAttribute('content',p.deep);
 }
+
+function addFinalHeroDetails(){
+  const photo=$('heroPhoto');
+  if(!photo||photo.dataset.finalDecorated==='yes')return;
+  photo.dataset.finalDecorated='yes';
+  const row=document.createElement('div');row.className='final-diya-row';row.setAttribute('aria-label','माँ के चरणों में दीप');
+  row.innerHTML=Array.from({length:11},()=>'<span class="final-diya" aria-hidden="true">🪔</span>').join('')+
+  '<svg class="final-hand" viewBox="0 0 170 150" role="img" aria-label="दीप अर्पित करता हुआ हाथ"><defs><linearGradient id="finalSkin" x2="1" y2="1"><stop stop-color="#f6d0a4"/><stop offset=".6" stop-color="#c27e50"/><stop offset="1" stop-color="#85452f"/></linearGradient></defs><path d="M18 146Q30 122 48 106L70 83Q77 75 84 81Q89 86 83 94L69 109Q80 102 96 91L121 73Q130 67 136 74Q141 81 132 88L111 105Q128 95 139 100Q146 106 137 114L113 130Q105 139 101 150Z" fill="url(#finalSkin)" stroke="#65311f" stroke-width="2"/><path d="M42 117Q60 99 74 88M65 123Q83 108 98 99" fill="none" stroke="#f9dfc1" stroke-width="3" stroke-linecap="round"/><path d="M76 75Q85 55 101 75Q111 86 121 83Q112 103 94 104Q78 99 76 75Z" fill="#dfa33e" stroke="#875019" stroke-width="2"/><path d="M96 71Q88 56 100 42Q113 58 104 72Z" fill="#ffb72f"/><path d="M100 67Q96 56 101 49Q107 59 103 68Z" fill="#fff5b4"/></svg>';
+  photo.insertAdjacentElement('afterend',row);
+  const controls=document.createElement('div');controls.className='final-sound-controls';
+  controls.innerHTML='<button type="button" id="finalConchButton">🐚 शंखनाद सुनें</button><button type="button" id="finalBellButton">🔔 घंटी बजाएँ</button>';
+  row.insertAdjacentElement('afterend',controls);
+  const audio=document.createElement('audio');audio.id='finalConchAudio';audio.preload='none';audio.src='https://commons.wikimedia.org/wiki/Special:Redirect/file/Conch_shell.ogg';document.body.appendChild(audio);
+  $('finalConchButton').addEventListener('click',()=>{audio.currentTime=0;audio.play().catch(()=>alert('शंख की ध्वनि अभी लोड नहीं हो पाई। कृपया थोड़ी देर बाद पुनः प्रयास करें।'));});
+  $('finalBellButton').addEventListener('click',()=>{try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;const ctx=new C();[0,0.22,0.44].forEach((t,i)=>{const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type='sine';osc.frequency.value=660-i*75;gain.gain.setValueAtTime(.0001,ctx.currentTime+t);gain.gain.exponentialRampToValueAtTime(.16,ctx.currentTime+t+.025);gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+t+1.6);osc.connect(gain);gain.connect(ctx.destination);osc.start(ctx.currentTime+t);osc.stop(ctx.currentTime+t+1.7);});setTimeout(()=>ctx.close(),2200)}catch(e){}});
+}
+
 async function init() {
   const form=$('contactForm');
   if(form) form.addEventListener('submit',e=>{e.preventDefault();$('formStatus').textContent=db?'संदेश भेजने की सुविधा सेटअप की जाँच के बाद सक्रिय की जाएगी।':'यह फ़ॉर्म संदेश भेजने के लिए अभी सक्रिय नहीं है। Supabase सेटअप के बाद इसे जोड़ा जाएगा।';});
@@ -97,6 +114,7 @@ async function init() {
   const [hero,history,loc,social,contact,gallery,videos,events,committee,announcements,theme]=await Promise.all([content('hero'),content('history'),content('location'),content('social'),content('contact'),rows('gallery'),rows('creator_videos'),rows('events'),rows('committee_members'),rows('announcements','created_at'),content('theme')]);
   if(theme?.theme_id)applySiteTheme(theme.custom_theme||theme.theme_id);
   if(hero){if(hero.title){$('heroTitle').textContent=hero.title;$('brandTitle').textContent=hero.title;}if(hero.subtitle){$('heroSub').textContent=hero.subtitle;$('brandSub').textContent=hero.subtitle+' · पटना';}if(hero.tagline)$('heroTag').textContent=hero.tagline;if(hero.description)$('heroDesc').textContent=hero.description;if(hero.background_url){const photo=$('heroPhoto');if(photo){photo.innerHTML=`<img src="${esc(hero.background_url)}" alt="श्री श्री बड़ी देवी जी माँ दुर्गा के दर्शन">`;photo.hidden=false;}}}
+  addFinalHeroDetails();
   if(history){$('historyBody').textContent=history.body||$('historyBody').textContent;const h=$('historyGallery');if(h)h.innerHTML='';}
   if(loc){if(loc.address)$('address').textContent=loc.address;if(loc.map_url)$('mapLink').href=loc.map_url;}
   if(contact){const bits=[contact.phone?'फ़ोन: '+contact.phone:'',contact.email?'ईमेल: '+contact.email:''].filter(Boolean);if(bits.length)$('contact').querySelector('.muted-text').textContent=bits.join(' · ')+'।';}
