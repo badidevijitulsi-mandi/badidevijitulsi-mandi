@@ -876,3 +876,10 @@ body{letter-spacing:.05px}
  .hero .bhakti-icon{font-size:15px!important}
 }
 @media(prefers-reduced-motion:reduce){.photo-diya{animation:none!important}}
+
+
+/* Keep the entire hero experience within one mobile screen */
+@media(max-width:700px){
+ .hero .hero-photo{height:76svh!important;min-height:0!important;max-height:76svh!important;overflow:hidden!important}
+ .hero .hero-photo img{height:76svh!important;min-height:0!important;max-height:76svh!important;width:100%!important;object-fit:contain!important;object-position:center center!important}
+}
