@@ -110,8 +110,8 @@ function initBhaktiPanel(){
    [0,1,2].forEach((i)=>{const osc=ctx.createOscillator(),amp=ctx.createGain(),filter=ctx.createBiquadFilter();osc.type='sawtooth';osc.frequency.setValueAtTime(190+i*2,t);osc.frequency.linearRampToValueAtTime(205+i*3,t+1.7);filter.type='lowpass';filter.frequency.value=950;amp.gain.setValueAtTime(.0001,t);amp.gain.exponentialRampToValueAtTime(.045/(i+1),t+.35);amp.gain.setValueAtTime(.045/(i+1),t+1.2);amp.gain.exponentialRampToValueAtTime(.0001,t+2.5);osc.connect(filter);filter.connect(amp);amp.connect(ctx.destination);osc.start(t);osc.stop(t+2.55);});
  };
  const shower=()=>{
-   if(!stage)return;const flowers=['🌸','🌼','🌺','💮'];
-   for(let i=0;i<18;i++){const el=document.createElement('span');el.className='falling-flower';el.textContent=flowers[i%flowers.length];el.style.left=(4+Math.random()*90)+'%';el.style.setProperty('--drift',(Math.random()*90-45)+'px');el.style.animationDelay=(Math.random()*.65)+'s';stage.appendChild(el);window.setTimeout(()=>el.remove(),3400);}
+   if(!stage)return;const flowers=['🌸','🌼','🌺','💮','🌷'];
+   for(let i=0;i<28;i++){const el=document.createElement('span');el.className='falling-flower';el.textContent=flowers[i%flowers.length];el.style.left=(4+Math.random()*90)+'%';el.style.setProperty('--drift',(Math.random()*90-45)+'px');el.style.animationDelay=(Math.random()*.65)+'s';stage.appendChild(el);window.setTimeout(()=>el.remove(),3400);}
  };
  panel.querySelectorAll('[data-bhakti]').forEach(btn=>btn.addEventListener('click',()=>{
    const action=btn.dataset.bhakti;
