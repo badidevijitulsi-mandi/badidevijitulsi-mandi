@@ -779,10 +779,10 @@ body{letter-spacing:.05px}
 
 /* Lift the 1932 tagline and description slightly higher over the deity photo */
 .hero .hero-inner{
-  transform:translateY(-16px)!important;
+  transform:translateY(-34px)!important;
 }
 @media(max-width:700px){
   .hero .hero-inner{
-    transform:translateY(-16px)!important;
+    transform:translateY(-34px)!important;
   }
 }
