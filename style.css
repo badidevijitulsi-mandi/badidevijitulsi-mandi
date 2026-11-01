@@ -883,3 +883,38 @@ body{letter-spacing:.05px}
  .hero .hero-photo{height:76svh!important;min-height:0!important;max-height:76svh!important;overflow:hidden!important}
  .hero .hero-photo img{height:76svh!important;min-height:0!important;max-height:76svh!important;width:100%!important;object-fit:contain!important;object-position:center center!important}
 }
+
+
+/* Fit the complete Devi photo, hero links and devotional controls in one mobile hero frame */
+@media(max-width:700px){
+ .hero{min-height:0!important}
+ .hero .hero-photo{height:72svh!important;min-height:450px!important;max-height:650px!important;overflow:hidden!important}
+ .hero .hero-photo img{height:100%!important;min-height:0!important;max-height:none!important;width:100%!important;object-fit:contain!important;object-position:center center!important}
+ .hero .hero-inner{top:0!important;bottom:0!important;height:100%!important;box-sizing:border-box!important;padding:112px 3.5% 9px!important;gap:5px!important;justify-content:flex-end!important;background:linear-gradient(180deg,rgba(55,3,9,.16) 0%,rgba(55,3,9,0) 28%,rgba(55,3,9,.12) 52%,rgba(55,3,9,.72) 100%)!important}
+ .hero .hero-copy{margin:0!important}
+ .hero .hero-pill{font-size:clamp(8px,2.25vw,11px)!important;padding:3px 8px!important;margin:0 0 3px!important}
+ .hero .hero-desc{font-size:clamp(8px,2.35vw,11px)!important;line-height:1.22!important;margin:2px 0 5px!important}
+ .hero .hero-actions{gap:5px!important}
+ .hero .hero-actions .button{font-size:clamp(8px,2.3vw,10px)!important;padding:4px 7px!important}
+ .hero .bhakti-panel{width:100%!important;max-width:none!important;margin:0!important;padding:6px 7px 2px!important;border-radius:11px!important;background:rgba(255,248,225,.91)!important;backdrop-filter:blur(5px)!important}
+ .hero .bhakti-panel-heading h2{font-size:12px!important}
+ .hero .bhakti-panel-heading p{font-size:7px!important}
+ .hero .bhakti-kicker{font-size:6px!important}
+ .hero .bhakti-actions{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:4px!important;margin:4px auto 1px!important}
+ .hero .bhakti-action{min-height:34px!important;padding:3px 1px!important;font-size:8px!important;gap:1px!important}
+ .hero .bhakti-icon{font-size:15px!important}
+ .hero .bhakti-feedback{min-height:9px!important;font-size:7px!important}
+ .hero .flower-stage{inset:0!important;z-index:5!important}
+ .hero .falling-flower{font-size:clamp(15px,4vw,22px)!important}
+ .hero .photo-diya{bottom:23%!important;font-size:clamp(36px,10vw,60px)!important}
+}
+@media(max-width:390px){
+ .hero .hero-photo{height:70svh!important;min-height:420px!important}
+ .hero .hero-inner{padding:100px 3% 7px!important}
+ .hero .hero-heading{padding:10px 3% 6px!important}
+ .hero .hero-heading h1{font-size:clamp(22px,6vw,29px)!important}
+ .hero .hero-heading h2{font-size:clamp(14px,4vw,18px)!important}
+ .hero .hero-desc{font-size:8px!important}
+ .hero .bhakti-action{min-height:32px!important;font-size:7.5px!important}
+}
+@keyframes flowerFall{0%{transform:translate3d(0,-20px,0) rotate(0deg) scale(.6);opacity:0}10%{opacity:1}100%{transform:translate3d(var(--drift),70svh,0) rotate(320deg) scale(1);opacity:0}}
