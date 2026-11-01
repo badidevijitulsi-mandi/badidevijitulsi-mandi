@@ -993,3 +993,20 @@ body{letter-spacing:.05px}
 }
 @media(max-width:520px){.photo-temple-bell{top:12px;right:12px;font-size:34px}}
 @media(prefers-reduced-motion:reduce){.photo-temple-bell.ringing{animation:none!important;opacity:1}}
+
+
+/* Final devotional animation visibility and timing adjustments */
+.photo-temple-bell{top:78px!important}
+@media(max-width:520px){.photo-temple-bell{top:68px!important;right:12px!important}}
+.hero-photo .flower-stage.on-devi-photo .falling-flower{
+ animation-duration:4.8s!important;
+}
+.hero-photo .flower-stage.on-devi-photo .photo-diya{
+ display:none!important;
+ position:absolute!important;left:50%!important;bottom:13%!important;
+ z-index:15!important;font-size:clamp(42px,9vw,70px)!important;
+ transform:translateX(-50%)!important;
+ filter:drop-shadow(0 0 10px #ffad22) drop-shadow(0 0 28px #ffcf5b)!important;
+ animation:photoDiyaGlow 1s ease-in-out infinite alternate!important;
+}
+.hero-photo .flower-stage.on-devi-photo.diya-active .photo-diya{display:block!important}
