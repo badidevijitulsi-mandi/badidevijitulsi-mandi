@@ -551,7 +551,7 @@
 
 /* Restore the main Maa Durga hero photo to its natural, uncropped presentation */
 .hero .hero-photo{display:block!important;position:relative!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;overflow:visible!important;line-height:0!important;background:transparent!important;grid-area:auto!important}
-.hero .hero-photo img{display:block!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;object-fit:contain!important;object-position:center center!important;filter:none!important;transform:none!important;border-radius:0!important;background:transparent!important}
+.hero .hero-photo img{display:block!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;object-fit:contain!important;object-position:center center!important;filter:none!important;border-radius:0!important;background:transparent!important}
 @media(max-width:700px){.hero .hero-photo{width:100%!important;height:auto!important;min-height:0!important;max-height:none!important}.hero .hero-photo img{width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;object-fit:contain!important;object-position:center top!important}}
 
 
@@ -639,7 +639,7 @@ body{letter-spacing:.05px}
 .hero-heading h1{letter-spacing:.1px}
 .hero-photo{overflow:hidden}
 .hero-photo img{transition:transform .7s ease}
-.hero-photo:hover img{transform:scale(1.012)!important}
+.hero-photo:hover img{transition:transform .7s ease}
 .hero-inner{width:min(1200px,91%)}
 .hero-copy{max-width:740px}
 .hero-pill{backdrop-filter:blur(8px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
