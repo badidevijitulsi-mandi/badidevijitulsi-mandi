@@ -572,3 +572,41 @@
 
 /* Permanently disable the history-photo slideshow and all blurred photo backdrops */
 .history-slideshow,.history-slide,.history-slide-bg,.history-slide-count{display:none!important;filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+
+
+/* FINAL PREMIUM MAROON & GOLD THEME */
+:root{--yellow:#fff8ed;--yellow-strong:#f6e7ca;--card:#fffdf8;--maroon:#74131f;--maroon-deep:#3d070e;--maroon-light:#941e2b;--gold:#e8c477;--gold-deep:#b98737;--ink:#3f2020;--muted:#806a60;--line:#e8d4ad;--shadow:0 9px 28px rgba(61,7,14,.09)}
+body{background:#fff8ed;color:#3f2020}
+.site-header{background:linear-gradient(110deg,#35050b,#74131f 58%,#42070e)!important;border-bottom:2px solid #d7b56d!important;box-shadow:0 5px 20px rgba(40,0,5,.2)!important}
+.brand-mark{background:linear-gradient(145deg,#f7e3ac,#bd8738)!important;color:#5a0d18!important;border-color:#f1d28a!important}
+.brand-copy strong,.brand-copy small,.main-nav a{color:#fff0d0!important}
+.main-nav a:hover{color:#f4cf7a!important}
+.hero{background:#43070f!important;color:#fff4dd!important}
+.hero-heading{background:linear-gradient(180deg,rgba(54,4,12,.86),rgba(78,8,18,.57) 75%,rgba(78,8,18,0))!important}
+.hero-heading h1{color:#ffe3a0!important;text-shadow:0 3px 12px rgba(20,0,3,.35)!important}
+.hero-heading h2{color:#fff1d2!important}
+.hero-photo,.hero-photo img{background:#3d070e!important}
+.hero-inner{background:linear-gradient(115deg,#74131f,#3d070e)!important}
+.hero-pill{color:#ffe5a6!important;border-color:#d7b56d!important;background:rgba(255,255,255,.04)}
+.hero-desc{color:#fff1dc!important}
+.button-gold{background:linear-gradient(135deg,#ffedbd,#d4a64e)!important;border-color:#e5c47d!important;color:#50101a!important;box-shadow:0 5px 15px rgba(25,0,4,.18)}
+.button-outline{border-color:#e1c17a!important;color:#fff0cf!important}
+.shortcut-wrap{background:#fff4e1!important;border-block:1px solid #e4cf9f!important}
+.shortcut{background:linear-gradient(145deg,#fffefa,#f8ebd1)!important;border:1px solid #dfc58e!important;border-radius:15px!important;box-shadow:0 6px 18px rgba(75,17,20,.07)!important}
+.shortcut strong,.section-heading h2,.info-card h2,.contact-card h2,.media-body h3{color:#68121e!important}
+.shortcut-icon,.eyebrow{color:#a47731!important}
+.info-card,.contact-card,.media-card{background:linear-gradient(145deg,#fffefa,#fff5e4)!important;border:1px solid #e3ca96!important;border-radius:17px!important;box-shadow:0 8px 25px rgba(67,12,17,.08)!important}
+.event-row,.committee-row{border-color:#ead9b8!important}
+.event-date{background:#6d111d!important;color:#ffe9b6!important}
+.contact-card input,.contact-card textarea{border-color:#dfcba3!important;background:#fffdf8!important}
+.site-footer{background:linear-gradient(110deg,#35050b,#74131f 60%,#3d070e)!important;border-top:2px solid #d7b56d!important}
+.site-footer a,.site-footer p,.footer-brand strong,.footer-brand small{color:#ffedca!important}
+.creator-brand{border-color:#d7b56d!important;background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(231,198,107,.12))!important}
+.final-diya-row{position:relative;display:flex;align-items:center;justify-content:center;gap:clamp(3px,1.5vw,16px);min-height:68px;padding:8px 100px 10px 10px;background:linear-gradient(180deg,#3d070e,#74131f 58%,#3d070e);border-top:1px solid #d7b56d;border-bottom:1px solid #d7b56d;overflow:hidden}
+.final-diya-row .final-diya{font-size:clamp(19px,3vw,31px);filter:drop-shadow(0 0 9px #ffc34f);animation:finalDiyaGlow 1.6s ease-in-out infinite alternate}
+.final-diya-row .final-diya:nth-child(even){animation-delay:.45s}
+.final-diya-row .final-hand{position:absolute;right:8px;bottom:-3px;width:clamp(66px,10vw,102px);height:auto;filter:drop-shadow(0 3px 6px #16000688)}
+.final-sound-controls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;padding:10px;background:#4b0912}
+.final-sound-controls button{border:1px solid #d7b56d;border-radius:24px;background:linear-gradient(135deg,#ffedbd,#d4a64e);color:#50101a;font-weight:700;padding:7px 13px;font:600 12px 'Hind',sans-serif}
+@keyframes finalDiyaGlow{to{transform:scale(1.08);filter:drop-shadow(0 0 14px #ffdb79)}}
+@media(max-width:700px){.final-diya-row{min-height:58px;padding-right:76px;gap:0}.final-diya-row .final-hand{width:69px;right:3px}.hero-inner{padding-top:22px!important;padding-bottom:26px!important}}
