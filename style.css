@@ -1025,3 +1025,19 @@ body{letter-spacing:.05px}
   90%{opacity:.95}
   100%{transform:translate3d(var(--drift),calc(100% + 70px),0) rotate(250deg) scale(1);opacity:0}
 }
+
+
+/* Final tuning: lower the lit diya and keep flower offering smooth for 10 seconds */
+.hero-photo .flower-stage.on-devi-photo .photo-diya{
+  bottom:7%!important;
+}
+.hero-photo .flower-stage.on-devi-photo .falling-flower{
+  animation:photoFlowerFall 3.6s linear forwards!important;
+  will-change:transform,opacity;
+}
+@keyframes photoFlowerFall{
+  0%{transform:translate3d(0,-28px,0) rotate(0deg) scale(.82);opacity:0}
+  9%{opacity:1}
+  88%{opacity:.96}
+  100%{transform:translate3d(var(--drift),110vh,0) rotate(260deg) scale(1);opacity:0}
+}
