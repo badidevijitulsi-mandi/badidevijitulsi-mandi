@@ -120,8 +120,10 @@ function initBhaktiPanel(){
  const shower=()=>{
    if(!stage)return;const flowers=['🌸','🌼','🌺','💮','🌷'];let count=0;
    const rain=window.setInterval(()=>{
-     for(let n=0;n<3;n++){const el=document.createElement('span');el.className='falling-flower';el.textContent=flowers[count++%flowers.length];el.style.left=(3+Math.random()*94)+'%';el.style.setProperty('--drift',(Math.random()*110-55)+'px');el.style.animationDelay=(Math.random()*.18)+'s';stage.appendChild(el);window.setTimeout(()=>el.remove(),5100);}
-   },150);
+     const el=document.createElement('span');el.className='falling-flower';el.textContent=flowers[count++%flowers.length];
+     el.style.left=(3+Math.random()*94)+'%';el.style.setProperty('--drift',(Math.random()*70-35)+'px');
+     stage.appendChild(el);window.setTimeout(()=>el.remove(),3000);
+   },180);
    window.setTimeout(()=>window.clearInterval(rain),5000);
  };
  panel.querySelectorAll('[data-bhakti]').forEach(btn=>btn.addEventListener('click',()=>{
