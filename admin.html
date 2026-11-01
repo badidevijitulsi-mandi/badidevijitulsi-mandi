@@ -1,5 +1,27 @@
 <!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>प्रशासन पैनल | श्री श्री बड़ी देवी जी</title><link rel="stylesheet" href="style.css"><style>
 body{background:#fff8df}.adminwrap{width:min(1120px,94%);margin:25px auto}.adminhead{background:#7c1018;color:#fff8dd;border-radius:15px;padding:20px;margin-bottom:16px}.adminhead h1{margin:0;color:#fff0a6}.adminhead p{margin:5px 0}.login,.box{background:white;border:1px solid #ead9b7;border-radius:14px;padding:20px;margin-bottom:15px}.field{display:grid;gap:5px;margin:10px 0}.field label{font-weight:700;color:#a51620}.field input,.field textarea,.field select{width:100%;padding:11px;border:1px solid #dcc8a4;border-radius:8px;font:inherit;background:#fffdf8}.field textarea{min-height:95px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tabs button{border:1px solid #cda95b;background:white;border-radius:25px;padding:9px 13px;cursor:pointer;color:#a51620;font-weight:700}.tabs button.active{background:#a51620;color:#fff2d1}.status{padding:10px 12px;border-radius:8px;background:#fff0a8;color:#7c1018;margin:10px 0}.itemrow{border:1px solid #ead9b7;border-radius:10px;padding:12px;margin:9px 0;display:flex;justify-content:space-between;gap:10px;align-items:center}.itemrow img{width:55px;height:55px;object-fit:cover;border-radius:8px}.itemrow button{margin:3px}.danger{background:#b51d28;color:white;border-color:#b51d28}.hidden{display:none!important}.small{font-size:13px;color:#755d50}.hero-preview-wrap{margin:12px 0 16px;padding:12px;border:1px solid #ead9b7;border-radius:12px;background:#fff9e9}.hero-preview{min-height:230px;border-radius:10px;overflow:hidden;background:#650d16 center/cover no-repeat;position:relative;color:#fff4d7;display:flex;align-items:center;padding:clamp(16px,4vw,34px)}.hero-preview:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(50,0,0,.88),rgba(80,0,0,.48))}.hero-preview-copy{position:relative;z-index:1;max-width:72%}.hero-preview h3{font-size:clamp(23px,4vw,36px);margin:0;color:#ffedb0;line-height:1.25}.hero-preview p{margin:5px 0;font-size:13px}.hero-preview .hero-preview-tag{display:inline-block;border:1px solid #e7bb4d;border-radius:20px;padding:3px 8px;margin-top:7px;font-size:11px}.preview-hint{font-size:12px;color:#755d50;margin:8px 0 0}.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}@media(max-width:650px){.grid2{grid-template-columns:1fr}.itemrow{align-items:flex-start;flex-direction:column}#livePreview{height:430px!important}}
+
+/* Mobile-first, unclipped hero positioning preview */
+.hero-preview-wrap{padding:16px;background:#fff9e9}
+.hero-preview{min-height:500px;height:auto;align-items:flex-start;padding:22px 18px;background-position:center;background-size:cover;overflow:visible}
+.hero-preview:before{border-radius:10px;background:linear-gradient(90deg,rgba(50,0,0,.78),rgba(80,0,0,.28))}
+.hero-preview-copy{width:100%;max-width:100%;min-width:0}
+#previewHeading,#previewCopy{width:100%;transition:transform .12s ease}
+.hero-preview h3{font-size:clamp(26px,5vw,38px);line-height:1.35;overflow-wrap:anywhere}
+.hero-preview p{font-size:15px;line-height:1.65;white-space:normal;overflow-wrap:anywhere}
+.hero-preview .hero-preview-tag{font-size:14px;line-height:1.5;padding:7px 12px;white-space:normal;max-width:100%}
+#headingX,#headingY,#copyX,#copyY{width:100%;height:30px;accent-color:#a51620;padding:0;touch-action:pan-y}
+.field small.small{display:block;font-size:14px;font-weight:700;color:#735b4b;margin-top:3px}
+#panel .box h3{margin-bottom:12px}
+#panel .box h4{margin:4px 0 8px;color:#7c1018}
+@media(max-width:650px){
+ .hero-preview{min-height:560px;padding:22px 16px}
+ .hero-preview-wrap{padding:12px}
+ .hero-preview h3{font-size:29px}
+ .hero-preview p{font-size:16px;line-height:1.7}
+ .hero-preview .hero-preview-tag{font-size:14px}
+ .hero-preview-copy{max-width:100%}
+}
 </style></head><body><div class="adminwrap"><div class="adminhead"><div class="topline"><div><h1>🪔 वेबसाइट प्रशासन पैनल</h1><p>श्री श्री बड़ी देवी जी · तुलसी मंडी</p></div><a class="btn" href="index.html" target="_blank">लाइव वेबसाइट देखें ↗</a></div></div>
 <section id="loginBox" class="login"><h2>प्रशासन प्रवेश</h2><p class="small">केवल अधिकृत प्रशासक के लिए। पहले Supabase में इस ईमेल का उपयोगकर्ता बनाना होगा।</p><div class="grid2"><div class="field"><label>ईमेल</label><input id="email" type="email" autocomplete="username" placeholder="आपका व्यवस्थापक ईमेल"></div><div class="field"><label>पासवर्ड</label><input id="password" type="password" autocomplete="current-password" placeholder="पासवर्ड"></div></div><button class="btn" id="loginBtn">लॉगिन करें</button><div id="loginStatus" class="status">पहले config.js और setup.sql की सेटिंग पूरी करें।</div></section>
 <section id="app" class="hidden"><div class="topline"><div><h2>सामग्री प्रबंधन</h2><p class="small">यहाँ बदलाव सेव करने पर जुड़े हुए लाइव पेज पर दिखेंगे।</p></div><button class="btn danger" id="logoutBtn">लॉगआउट</button></div><div id="status" class="status">तैयार</div>
