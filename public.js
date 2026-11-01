@@ -100,11 +100,11 @@ function addFinalHeroDetails(){
   '<svg class="final-hand" viewBox="0 0 170 150" role="img" aria-label="दीप अर्पित करता हुआ हाथ"><defs><linearGradient id="finalSkin" x2="1" y2="1"><stop stop-color="#f6d0a4"/><stop offset=".6" stop-color="#c27e50"/><stop offset="1" stop-color="#85452f"/></linearGradient></defs><path d="M18 146Q30 122 48 106L70 83Q77 75 84 81Q89 86 83 94L69 109Q80 102 96 91L121 73Q130 67 136 74Q141 81 132 88L111 105Q128 95 139 100Q146 106 137 114L113 130Q105 139 101 150Z" fill="url(#finalSkin)" stroke="#65311f" stroke-width="2"/><path d="M42 117Q60 99 74 88M65 123Q83 108 98 99" fill="none" stroke="#f9dfc1" stroke-width="3" stroke-linecap="round"/><path d="M76 75Q85 55 101 75Q111 86 121 83Q112 103 94 104Q78 99 76 75Z" fill="#dfa33e" stroke="#875019" stroke-width="2"/><path d="M96 71Q88 56 100 42Q113 58 104 72Z" fill="#ffb72f"/><path d="M100 67Q96 56 101 49Q107 59 103 68Z" fill="#fff5b4"/></svg>';
   photo.insertAdjacentElement('afterend',row);
   const controls=document.createElement('div');controls.className='final-sound-controls';
-  controls.innerHTML='<button type="button" id="finalConchButton">🐚 शंखनाद सुनें</button><button type="button" id="finalBellButton">🔔 घंटी बजाएँ</button>';
+  controls.innerHTML='<button type="button" id="finalConchButton">🐚 शंखनाद सुनें</button>';
   row.insertAdjacentElement('afterend',controls);
   const audio=document.createElement('audio');audio.id='finalConchAudio';audio.preload='none';audio.src='https://commons.wikimedia.org/wiki/Special:Redirect/file/Conch_shell.ogg';document.body.appendChild(audio);
   $('finalConchButton').addEventListener('click',()=>{audio.currentTime=0;audio.play().catch(()=>alert('शंख की ध्वनि अभी लोड नहीं हो पाई। कृपया थोड़ी देर बाद पुनः प्रयास करें।'));});
-  $('finalBellButton').addEventListener('click',()=>{try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;const ctx=new C();[0,0.22,0.44].forEach((t,i)=>{const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type='sine';osc.frequency.value=660-i*75;gain.gain.setValueAtTime(.0001,ctx.currentTime+t);gain.gain.exponentialRampToValueAtTime(.16,ctx.currentTime+t+.025);gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+t+1.6);osc.connect(gain);gain.connect(ctx.destination);osc.start(ctx.currentTime+t);osc.stop(ctx.currentTime+t+1.7);});setTimeout(()=>ctx.close(),2200)}catch(e){}});
+
 }
 
 async function init() {
