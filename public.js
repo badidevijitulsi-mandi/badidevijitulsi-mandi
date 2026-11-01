@@ -118,13 +118,16 @@ function initBhaktiPanel(){
    [0,1,2].forEach((i)=>{const osc=ctx.createOscillator(),amp=ctx.createGain(),filter=ctx.createBiquadFilter();osc.type='sawtooth';osc.frequency.setValueAtTime(190+i*2,t);osc.frequency.linearRampToValueAtTime(205+i*3,t+1.7);filter.type='lowpass';filter.frequency.value=950;amp.gain.setValueAtTime(.0001,t);amp.gain.exponentialRampToValueAtTime(.045/(i+1),t+.35);amp.gain.setValueAtTime(.045/(i+1),t+1.2);amp.gain.exponentialRampToValueAtTime(.0001,t+2.5);osc.connect(filter);filter.connect(amp);amp.connect(ctx.destination);osc.start(t);osc.stop(t+2.55);});
  };
  const shower=()=>{
-   if(!stage)return;const flowers=['🌸','🌼','🌺','💮','🌷'];
-   for(let i=0;i<28;i++){const el=document.createElement('span');el.className='falling-flower';el.textContent=flowers[i%flowers.length];el.style.left=(4+Math.random()*90)+'%';el.style.setProperty('--drift',(Math.random()*90-45)+'px');el.style.animationDelay=(Math.random()*.65)+'s';stage.appendChild(el);window.setTimeout(()=>el.remove(),3400);}
+   if(!stage)return;const flowers=['🌸','🌼','🌺','💮','🌷'];let count=0;
+   const rain=window.setInterval(()=>{
+     for(let n=0;n<3;n++){const el=document.createElement('span');el.className='falling-flower';el.textContent=flowers[count++%flowers.length];el.style.left=(3+Math.random()*94)+'%';el.style.setProperty('--drift',(Math.random()*110-55)+'px');el.style.animationDelay=(Math.random()*.18)+'s';stage.appendChild(el);window.setTimeout(()=>el.remove(),5100);}
+   },150);
+   window.setTimeout(()=>window.clearInterval(rain),5000);
  };
  panel.querySelectorAll('[data-bhakti]').forEach(btn=>btn.addEventListener('click',()=>{
    const action=btn.dataset.bhakti;
    if(action==='pushp'){shower();feedback.textContent='🌸 माँ के चरणों में पुष्प अर्पित';}
-   if(action==='diya'){const lit=btn.classList.toggle('is-lit');btn.setAttribute('aria-pressed',String(lit));panel.classList.toggle('diya-active',lit);feedback.textContent=lit?'🪔 दीप प्रज्वलित है':'दीप बुझा दिया गया';}
+   if(action==='diya'){const lit=btn.classList.toggle('is-lit');btn.setAttribute('aria-pressed',String(lit));panel.classList.toggle('diya-active',lit);stage?.classList.toggle('diya-active',lit);feedback.textContent=lit?'🪔 दीप प्रज्वलित है':'दीप बुझा दिया गया';}
    if(action==='shankh'){playConch();feedback.textContent='📯 मंगल शंखनाद';}
    if(action==='ghanti'){
      playBell();feedback.textContent='🔔 माँ के दरबार में घंटी';
