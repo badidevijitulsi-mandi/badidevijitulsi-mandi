@@ -1,59 +1,44 @@
-<!doctype html>
-<html lang="hi">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>बड़ी देवी जी — पूजा इफेक्ट Preview</title>
+<!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>बड़ी देवी जी — नया Preview</title>
 <style>
-:root{color-scheme:light}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,'Noto Sans Devanagari',sans-serif;background:#fff9ed;color:#4b1118}
-.preview-bar{position:sticky;top:0;z-index:20;background:linear-gradient(110deg,#4c0710,#781522);color:#ffdf9a;padding:10px 14px;box-shadow:0 4px 18px #26000840}
-.topline{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.brand{font-weight:800;font-size:16px}.sub{font-size:11px;color:#ffe9c4;opacity:.9}
-.pill{font-size:11px;border:1px solid #d7a94d;border-radius:30px;padding:5px 9px;color:#ffe4a3}
-.note{font-size:12px;margin:8px 0 9px;color:#ffedce}
-.actions{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px}
-button{flex:0 0 auto;border:1px solid #d6a44a;border-radius:22px;background:#fff4d9;color:#6d1019;padding:9px 12px;font-weight:700;font-size:13px;cursor:pointer}
-button:active{transform:scale(.97)}
-.preview-frame{position:relative;height:calc(100dvh - 120px);min-height:520px;background:#650d16;overflow:hidden}
-iframe{display:block;border:0;width:100%;height:100%;background:#fff}
-.fx-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:5}
-.petal{position:absolute;top:-35px;font-size:25px;animation:fall 3.4s linear forwards;filter:drop-shadow(0 2px 2px #0003)}
-@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(620deg);opacity:.15}}
-.diya{position:absolute;left:50%;top:47%;font-size:62px;transform:translate(-50%,-50%);filter:drop-shadow(0 0 18px #ffad24);animation:orbit 2.6s ease-in-out forwards}
-@keyframes orbit{0%{opacity:0;transform:translate(-50%,-50%) scale(.5) rotate(-20deg)}20%,80%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.5) rotate(25deg)}}
-.wave{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);font-size:clamp(56px,12vw,100px);animation:wave 2.2s ease-out forwards;filter:drop-shadow(0 5px 10px #7b3c0c66)}
-@keyframes wave{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}25%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.6)}}
-.bell{position:absolute;right:8%;top:12%;font-size:64px;transform-origin:50% 0;animation:ring 1.8s ease-in-out forwards;filter:drop-shadow(0 4px 8px #0005)}
-@keyframes ring{0%,100%{transform:rotate(0)}15%,45%,75%{transform:rotate(18deg)}30%,60%,90%{transform:rotate(-18deg)}}
-@media(max-width:600px){.preview-frame{height:calc(100dvh - 144px);min-height:460px}.brand{font-size:14px}.note{font-size:11px}}
-</style>
-</head>
-<body>
-<header class="preview-bar">
- <div class="topline"><div><div class="brand">श्री श्री बड़ी देवी जी · तुलसी मंडी</div><div class="sub">पूजा इफेक्ट — Preview</div></div><span class="pill">मैरून थीम</span></div>
- <p class="note">यह केवल देखने के लिए अलग Preview है। मुख्य वेबसाइट और उसका वीडियो बटन नहीं बदले गए हैं।</p>
- <div class="actions">
-  <button type="button" onclick="flowers()">🌸 पुष्प वर्षा</button>
-  <button type="button" onclick="diya()">🪔 दीप आरती</button>
-  <button type="button" onclick="conch()">🐚 शंखनाद</button>
-  <button type="button" onclick="bell()">🔔 मंदिर घंटी</button>
- </div>
-</header>
-<main class="preview-frame">
- <iframe src="/" title="मौजूदा बड़ी देवी जी वेबसाइट"></iframe>
- <div class="fx-layer" id="fx" aria-hidden="true"></div>
-</main>
+*{box-sizing:border-box}body{margin:0;background:#fff8eb;font-family:system-ui,'Noto Sans Devanagari',sans-serif;color:#4b1118}.bar{position:sticky;top:0;z-index:99;padding:10px 14px;background:linear-gradient(110deg,#41050d,#7d1420,#4b0710);color:#ffe6a5;border-bottom:2px solid #d7a64c;box-shadow:0 5px 18px #25000655}.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800}.sub{font-size:11px;font-weight:400;color:#ffe9c4}.note{font-size:12px;margin:7px 0;color:#ffedce}.actions{display:flex;gap:8px;overflow:auto}button{white-space:nowrap;border:1px solid #d8ad60;border-radius:30px;background:linear-gradient(#fff4d6,#f5dca4);color:#65101a;padding:9px 13px;font-weight:750}.frame{height:calc(100dvh - 118px);min-height:600px}iframe{width:100%;height:100%;border:0;background:#fff8eb}@media(max-width:600px){.frame{height:calc(100dvh - 145px);min-height:550px}.note{font-size:11px}}
+</style></head><body>
+<header class="bar"><div class="top"><div>श्री श्री बड़ी देवी जी · तुलसी मंडी<div class="sub">नई मैरून-गोल्ड थीम · पूरा वेबसाइट Preview</div></div><span>सिर्फ Preview</span></div><p class="note">नई थीम और सजावट देखें। मुख्य वेबसाइट अभी सुरक्षित है—यह बदलाव स्थायी नहीं है।</p><div class="actions"><button onclick="flowers()">🌸 पुष्प वर्षा</button><button onclick="aarti()">🪔 दीप आरती</button><button onclick="playConch()">🐚 असली शंख ध्वनि</button><button onclick="bell()">🔔 मंदिर घंटी</button></div></header>
+<main class="frame"><iframe id="site" src="/" title="नई थीम Preview"></iframe></main>
+<audio id="conch" preload="none" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Conch_shell.ogg"></audio>
 <script>
-const fx=document.getElementById('fx');
-function flowers(){for(let i=0;i<34;i++){const e=document.createElement('span');e.className='petal';e.textContent=['🌸','🌼','🏵️','🌺'][i%4];e.style.left=Math.random()*100+'%';e.style.animationDelay=(Math.random()*.9)+'s';e.style.setProperty('--drift',(Math.random()*180-90)+'px');fx.appendChild(e);setTimeout(()=>e.remove(),4700)}}
-function show(symbol,cls,duration=2600){const e=document.createElement('span');e.className=cls;e.textContent=symbol;fx.appendChild(e);setTimeout(()=>e.remove(),duration)}
-function diya(){show('🪔','diya')}
-function conch(){show('🐚','wave');tone(392,.7);setTimeout(()=>tone(523,.8),180)}
-function bell(){show('🔔','bell');tone(880,.9);setTimeout(()=>tone(660,.7),160);setTimeout(()=>tone(990,.8),330)}
-function tone(freq,duration){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;const c=new C(),o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=freq;g.gain.setValueAtTime(.0001,c.currentTime);g.gain.exponentialRampToValueAtTime(.12,c.currentTime+.03);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+duration);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+duration+.04);o.onended=()=>c.close()}catch(e){}}
+const frame=document.getElementById('site'),audio=document.getElementById('conch');
+const css=`
+html,body{background:#fff8eb!important;color:#4b1118!important}
+.site-header{background:linear-gradient(110deg,#41050d,#781522 58%,#4d0710)!important;border-bottom:2px solid #d7a64c!important;box-shadow:0 6px 22px #30040b30!important}
+.brand-mark{background:linear-gradient(145deg,#ffdf91,#bd832d)!important;color:#5b0b15!important}
+.brand-copy strong,.brand-copy small,.main-nav a{color:#fff0c8!important}
+.hero{display:flex!important;flex-direction:column!important;overflow:hidden!important;background:#650d16!important;border-bottom:3px solid #d2a04a!important}
+.hero-heading{order:0!important;position:relative!important;inset:auto!important;padding:clamp(20px,4vw,42px) 5.7% 17px!important;background:linear-gradient(110deg,#4a0610,#791722)!important;text-align:left!important}
+.hero-heading h1{color:#ffdf91!important;font-size:clamp(34px,5.5vw,62px)!important}.hero-heading h2{color:#fff0cb!important}
+.hero-photo{order:1!important;position:relative!important;background:#39050b!important;border-block:1px solid #d4a54f!important}
+.hero-photo img{width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;display:block!important}
+.preview-diyas{order:2;position:relative;display:flex;justify-content:center;align-items:center;gap:clamp(4px,1.4vw,15px);min-height:78px;padding:9px 4% 14px;background:linear-gradient(#4b0710,#6b101a 55%,#43060d);border-bottom:1px solid #d6a64e;overflow:hidden}
+.preview-diyas span{font-size:clamp(22px,4vw,39px);filter:drop-shadow(0 0 8px #ffb52c);animation:flame 1.5s ease-in-out infinite alternate}.preview-diyas span:nth-child(2n){animation-delay:.5s}
+.preview-hand{position:absolute;right:3%;bottom:-3px;width:clamp(76px,13vw,126px);filter:drop-shadow(0 3px 5px #21000688)}
+@keyframes flame{to{transform:scale(1.1);filter:drop-shadow(0 0 13px #ffd46b)}}
+.hero-inner{order:3!important;position:relative!important;inset:auto!important;padding:24px 5.7% 30px!important;background:linear-gradient(145deg,#68101b,#40060d)!important;display:block!important}
+.hero-pill{border:1px solid #d8ad60!important;background:#ffffff12!important;color:#ffe5a1!important}.hero-desc{color:#fff5e1!important}
+.button-gold{background:linear-gradient(135deg,#ffe5a0,#d7a64c)!important;color:#57101a!important;border:1px solid #ffe1a0!important}
+.button-outline{border:1px solid #f1ce7d!important;color:#ffe9b9!important;background:#ffffff10!important}
+.shortcut{background:linear-gradient(145deg,#fffdf7,#fff0d4)!important;border:1px solid #dfbd79!important;border-radius:16px!important;color:#64121b!important;box-shadow:0 5px 18px #5c260d12!important}
+.info-card,.contact-card,.media-card,.social{background:linear-gradient(145deg,#fffdf8,#fff4df)!important;border:1px solid #dfbd79!important;border-radius:19px!important;box-shadow:0 8px 24px #57200e12!important;color:#4b1118!important}
+.section-heading h2,.info-card h2,.contact-card h2{color:#64111b!important}.eyebrow{color:#a36a20!important}
+.site-footer{background:linear-gradient(110deg,#3c050c,#71121d)!important;border-top:2px solid #d5a34d!important;color:#ffedc8!important}
+.site-footer a,.site-footer p,.footer-brand strong,.footer-brand small{color:#ffedc8!important}
+@media(max-width:700px){.preview-diyas{min-height:65px;gap:3px}.preview-hand{width:78px;right:1%}.hero-inner{padding:19px 5.7% 24px!important}}
+`;
+function decorate(){try{const d=frame.contentDocument;if(!d||!d.head)return;if(!d.getElementById('previewTheme')){const s=d.createElement('style');s.id='previewTheme';s.textContent=css;d.head.appendChild(s)}const p=d.getElementById('heroPhoto');if(p&&!d.getElementById('previewDiyas')){const r=d.createElement('div');r.id='previewDiyas';r.className='preview-diyas';r.innerHTML='<span>🪔</span>'.repeat(9)+'<svg class="preview-hand" viewBox="0 0 170 150" role="img" aria-label="दीप अर्पित करता हुआ हाथ"><defs><linearGradient id="sk" x2="1" y2="1"><stop stop-color="#f8d0a0"/><stop offset=".6" stop-color="#c78350"/><stop offset="1" stop-color="#8f4d32"/></linearGradient></defs><path d="M18 146Q30 122 48 106L70 83Q77 75 84 81Q89 86 83 94L69 109Q80 102 96 91L121 73Q130 67 136 74Q141 81 132 88L111 105Q128 95 139 100Q146 106 137 114L113 130Q105 139 101 150Z" fill="url(#sk)" stroke="#6d321f" stroke-width="2"/><path d="M42 117Q60 99 74 88M65 123Q83 108 98 99" fill="none" stroke="#f6d0aa" stroke-width="3" stroke-linecap="round"/><path d="M76 75Q85 55 101 75Q111 86 121 83Q112 103 94 104Q78 99 76 75Z" fill="#e5a33e" stroke="#8a4c17" stroke-width="2"/><path d="M96 71Q88 56 100 42Q113 58 104 72Z" fill="#ffbd32"/><path d="M100 67Q96 56 101 49Q107 59 103 68Z" fill="#fff4a6"/></svg>';p.insertAdjacentElement('afterend',r)} }catch(e){}}
+frame.addEventListener('load',()=>{decorate();setTimeout(decorate,500);setTimeout(decorate,1500)});
+function layer(){try{const d=frame.contentDocument;let l=d.getElementById('previewFx');if(!l){l=d.createElement('div');l.id='previewFx';l.style.cssText='position:fixed;inset:0;z-index:99999;pointer-events:none;overflow:hidden';d.body.appendChild(l)}return l}catch(e){return null}}
+function flowers(){const l=layer();if(!l)return;for(let i=0;i<30;i++){const e=l.ownerDocument.createElement('span');e.textContent=['🌸','🌼','🏵️','🌺'][i%4];e.style.cssText='position:absolute;left:'+Math.random()*100+'%;top:-30px;font-size:25px;animation:fall 3.5s linear forwards;animation-delay:'+Math.random()+'s';l.appendChild(e);setTimeout(()=>e.remove(),4600)}}
+function aarti(){const l=layer();if(!l)return;const e=l.ownerDocument.createElement('span');e.textContent='🪔';e.style.cssText='position:absolute;left:50%;top:48%;font-size:80px;filter:drop-shadow(0 0 20px #ffb42c);animation:glow 2.5s forwards';l.appendChild(e);setTimeout(()=>e.remove(),2600)}
+function playConch(){audio.currentTime=0;audio.play().catch(()=>alert('शंख ध्वनि चलाने के लिए दोबारा बटन दबाएँ।'))}
+function bell(){const l=layer();if(!l)return;const e=l.ownerDocument.createElement('span');e.textContent='🔔';e.style.cssText='position:absolute;right:8%;top:12%;font-size:64px;transform-origin:50% 0;animation:swing 1.8s forwards';l.appendChild(e);setTimeout(()=>e.remove(),1900)}
 </script>
-</body>
-</html>
+<style>@keyframes fall{to{transform:translateY(110vh) rotate(600deg);opacity:.1}}@keyframes glow{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}20%,80%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.5)}}@keyframes swing{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(18deg)}40%,80%{transform:rotate(-18deg)}}</style>
+</body></html>
