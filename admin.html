@@ -231,6 +231,40 @@ body{background:#fff8df}.adminwrap{width:min(1120px,94%);margin:25px auto}.admin
 #heroPreviewImage{cursor:grab!important}
 #previewHeading,#previewCopy{cursor:grab!important;user-select:none}
 @media(max-width:650px){.editor-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.editor-actions .btn{width:100%;font-size:13px;min-height:44px}}
+
+/* WYSIWYG hero editor: use the same natural image ratio and responsive type scale as the live hero */
+.hero-preview-wrap{width:100%;box-sizing:border-box;padding:10px!important;background:#fffaf0!important}
+#heroImagePreview.hero-preview{display:block!important;position:relative!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;overflow:hidden!important;padding:0!important;border-radius:0!important;background:#650d16!important;box-sizing:border-box!important}
+#heroPreviewImage{display:block!important;position:relative!important;inset:auto!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;object-fit:contain!important;object-position:center!important;z-index:0!important;transform-origin:center center!important;touch-action:none!important}
+#heroImagePreview:before{position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;border-radius:0!important;background:linear-gradient(180deg,rgba(76,5,13,.76) 0%,rgba(76,5,13,.58) 18%,rgba(76,5,13,0) 34%,rgba(76,5,13,.10) 55%,rgba(76,5,13,.48) 76%,rgba(76,5,13,.82) 100%)!important}
+#heroImagePreview .hero-preview-copy{position:absolute!important;inset:0!important;z-index:2!important;width:100%!important;max-width:none!important;pointer-events:none!important}
+#previewHeading{position:absolute!important;top:0!important;left:0!important;right:0!important;width:100%!important;max-width:none!important;padding:clamp(14px,5vw,58px) 5.7% 20px!important;box-sizing:border-box!important;text-align:left!important;background:linear-gradient(180deg,rgba(76,5,13,.76),rgba(76,5,13,.58) 72%,transparent)!important;pointer-events:auto!important;touch-action:none!important}
+#previewHeading>p:first-child{display:none!important}
+#previewHeading h3{margin:0!important;color:#ffdf83!important;font-family:'Tiro Devanagari Hindi','Hind',serif!important;font-size:clamp(34px,8.8vw,52px)!important;font-weight:600!important;line-height:1.22!important;text-shadow:0 2px 8px rgba(0,0,0,.22)!important}
+#previewSubtitle{margin:2px 0 0!important;color:#fff0c5!important;font-size:clamp(23px,6vw,32px)!important;font-weight:600!important;line-height:1.35!important}
+#previewCopy{position:absolute!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:none!important;padding:clamp(90px,22vw,190px) 5.7% 22px!important;box-sizing:border-box!important;text-align:left!important;background:linear-gradient(180deg,transparent 0%,rgba(76,5,13,.10) 12%,rgba(76,5,13,.48) 45%,rgba(76,5,13,.82) 100%)!important;pointer-events:auto!important;touch-action:none!important}
+#previewTag{display:inline-block!important;margin:0 0 10px!important;padding:7px 15px!important;border:2px solid rgba(255,218,119,.94)!important;border-radius:50px!important;background:rgba(91,8,18,.24)!important;color:#ffe8a1!important;font-size:clamp(15px,4.5vw,20px)!important;line-height:1.4!important}
+#previewDescription{max-width:1000px!important;margin:8px 0 0!important;color:#fff9ee!important;font-size:clamp(14px,4.4vw,20px)!important;line-height:1.6!important;text-shadow:0 1px 3px rgba(0,0,0,.35)!important}
+#heroImagePreview .crop-frame{position:absolute!important;inset:0!important;z-index:4!important;pointer-events:none!important;border:1px dashed rgba(255,225,150,.7)!important;box-sizing:border-box!important}
+#heroImagePreview .crop-frame i{display:none!important}
+@media(min-width:701px){
+ #previewHeading{padding:clamp(24px,5vw,58px) max(5.7%,calc((100% - 1160px)/2)) 24px!important}
+ #previewHeading h3{font-size:clamp(38px,5.4vw,66px)!important}
+ #previewSubtitle{font-size:clamp(23px,3vw,34px)!important}
+ #previewCopy{padding:clamp(145px,22vw,260px) max(5.7%,calc((100% - 1160px)/2)) 34px!important}
+ #previewTag{font-size:clamp(15px,2.1vw,24px)!important}
+ #previewDescription{font-size:clamp(18px,2.5vw,30px)!important}
+}
+@media(max-width:700px){
+ #heroImagePreview.hero-preview{border-radius:0!important}
+ #previewHeading{padding:24px 5.7% 20px!important}
+ #previewHeading h3{font-size:clamp(34px,8.8vw,52px)!important}
+ #previewSubtitle{font-size:clamp(23px,6vw,32px)!important}
+ #previewCopy{padding:clamp(145px,22vw,260px) 5.7% 22px!important}
+ #previewTag{font-size:clamp(15px,4.5vw,20px)!important}
+ #previewDescription{font-size:clamp(16px,4.4vw,20px)!important}
+}
+
 </style></head><body><div class="adminwrap"><div class="adminhead"><div class="topline"><div><h1>🪔 वेबसाइट प्रशासन पैनल</h1><p>श्री श्री बड़ी देवी जी · तुलसी मंडी</p></div><a class="btn" href="index.html" target="_blank">लाइव वेबसाइट देखें ↗</a></div></div>
 <section id="loginBox" class="login"><h2>प्रशासन प्रवेश</h2><p class="small">केवल अधिकृत प्रशासक के लिए। पहले Supabase में इस ईमेल का उपयोगकर्ता बनाना होगा।</p><div class="grid2"><div class="field"><label>ईमेल</label><input id="email" type="email" autocomplete="username" placeholder="आपका व्यवस्थापक ईमेल"></div><div class="field"><label>पासवर्ड</label><input id="password" type="password" autocomplete="current-password" placeholder="पासवर्ड"></div></div><button class="btn" id="loginBtn">लॉगिन करें</button><div id="loginStatus" class="status">पहले config.js और setup.sql की सेटिंग पूरी करें।</div></section>
 <section id="app" class="hidden"><div class="topline"><div><h2>सामग्री प्रबंधन</h2><p class="small">यहाँ बदलाव सेव करने पर जुड़े हुए लाइव पेज पर दिखेंगे।</p></div><button class="btn danger" id="logoutBtn">लॉगआउट</button></div><div id="status" class="status">तैयार</div>
