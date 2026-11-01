@@ -786,3 +786,8 @@ body{letter-spacing:.05px}
     transform:translateY(-34px)!important;
   }
 }
+
+
+/* Admin-adjustable independent hero text positioning */
+.hero .hero-heading{transform:translate(var(--hero-heading-x,0px),var(--hero-heading-y,0px));}
+.hero .hero-inner{transform:translate(var(--hero-copy-x,0px),calc(-34px + var(--hero-copy-y,0px)))!important;}
