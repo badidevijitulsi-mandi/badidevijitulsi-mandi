@@ -1,6 +1,7 @@
 const configured = !!(window.supabase && window.SUPABASE_URL && !window.SUPABASE_URL.includes('PASTE_') && window.SUPABASE_ANON_KEY && !window.SUPABASE_ANON_KEY.includes('PASTE_'));
 const db = configured ? window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY) : null;
 const $ = id => document.getElementById(id);
+let customConchUrl='';let customConchAudio=null;
 if ($('year')) $('year').textContent = new Date().getFullYear();
 const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function rows(table, order='sort_order') { if(!db) return []; let q=db.from(table).select('*'); if(order) q=q.order(order,{ascending:true}); const {data,error}=await q; if(error){console.warn(error.message);return []} return data||[]; }
@@ -104,7 +105,6 @@ function initBhaktiPanel(){
  const feedback=$('bhaktiFeedback'),stage=$('flowerStage');
  initBhaktiPhotoEffects();
  const photoBell=$('heroPhoto')?.querySelector('.photo-temple-bell');
- let customConchUrl='';let customConchAudio=null;
  let audioContext;
  const getAudio=()=>{const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;if(!audioContext)audioContext=new C();if(audioContext.state==='suspended')audioContext.resume();return audioContext;};
  const tone=(ctx,freq,start,duration,gain,type='sine',detune=0)=>{
