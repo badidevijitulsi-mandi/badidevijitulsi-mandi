@@ -791,3 +791,10 @@ body{letter-spacing:.05px}
 /* Admin-adjustable independent hero text positioning */
 .hero .hero-heading{transform:translate(var(--hero-heading-x,0px),var(--hero-heading-y,0px));}
 .hero .hero-inner{transform:translate(var(--hero-copy-x,0px),calc(-34px + var(--hero-copy-y,0px)))!important;}
+
+/* Keep hero positioning inside the image frame on phones and desktop */
+.hero-preview{overflow:hidden!important;box-sizing:border-box}
+.hero-preview-copy,#previewHeading,#previewCopy{box-sizing:border-box;min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:normal}
+#previewHeading,#previewCopy{transition:transform .12s ease,width .12s ease}
+.hero-preview p,.hero-preview-tag{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.hero .hero-heading,.hero .hero-inner{box-sizing:border-box;min-width:0;}
