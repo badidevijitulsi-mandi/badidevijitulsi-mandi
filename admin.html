@@ -61,5 +61,15 @@ checkSession();
 #heroImagePreview .crop-frame i:nth-child(3){bottom:-2px!important;left:-2px!important}
 #heroImagePreview .crop-frame i:nth-child(4){bottom:-2px!important;right:-2px!important}
 #heroImagePreview #previewHeading,#heroImagePreview #previewCopy{touch-action:none!important}
+
+/* Separate touch hit-areas: empty hero space belongs to the photo; actual text belongs to text drag. */
+#heroImagePreview .hero-heading{pointer-events:none!important}
+#heroImagePreview .hero-heading h1,
+#heroImagePreview .hero-heading h2{pointer-events:auto!important;touch-action:none!important}
+#heroImagePreview .hero-inner{pointer-events:none!important}
+#heroImagePreview .hero-copy{pointer-events:auto!important;touch-action:none!important}
+#heroImagePreview .hero-photo{pointer-events:auto!important;position:relative!important;z-index:1!important}
+#heroImagePreview .hero-photo img{pointer-events:none!important}
+#heroImagePreview #previewCopy{touch-action:none!important}
 </style>
 </body></html>
