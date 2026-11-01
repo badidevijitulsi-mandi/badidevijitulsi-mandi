@@ -765,3 +765,13 @@ body{letter-spacing:.05px}
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* Restore the original photo showing behind the 1932 hero text */
+.hero .hero-inner,
+.hero .hero-copy {
+  background: transparent !important;
+}
+.hero .hero-pill {
+  background: rgba(255,255,255,.04) !important;
+}
